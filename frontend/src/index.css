@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Base ──────────────────────────────────────────────────────────────── */
+@layer base {
+  :root {
+    --brand-primary:   #4F46E5;
+    --brand-secondary: #10B981;
+    --brand-accent:    #F59E0B;
+    --bg-base:         #F8FAFC;
+    --text-primary:    #0F172A;
+    --text-secondary:  #475569;
+  }
+
+  body {
+    @apply font-sans bg-slate-50 text-slate-900 antialiased;
+    selection-color: white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: #4F46E5;
+    color: white;
+  }
+
+  /* Scrollbar minimalista */
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+}
+
+/* ─── Components ─────────────────────────────────────────────────────────── */
+@layer components {
+
+  /* Skeleton loader con efecto shimmer */
+  .skeleton {
+    background: linear-gradient(
+      90deg,
+      #f1f5f9 0px,
+      #e2e8f0 40px,
+      #f1f5f9 80px
+    );
+    background-size: 400px 100%;
+    animation: shimmer 1.6s linear infinite;
+    border-radius: 0.5rem;
+  }
+
+  /* Glassmorphism */
+  .glass {
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+  }
+
+  .glass-dark {
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* Tarjeta estándar del sistema */
+  .card {
+    @apply bg-white rounded-2xl border border-slate-100 shadow-premium transition-all duration-200;
+  }
+
+  .card:hover {
+    @apply shadow-premium-hover border-slate-200;
+  }
+
+  /* Badge de rol */
+  .role-badge-admin  { @apply bg-indigo-50  text-indigo-700  border border-indigo-100  font-semibold; }
+  .role-badge-host   { @apply bg-emerald-50 text-emerald-700 border border-emerald-100 font-semibold; }
+  .role-badge-user   { @apply bg-slate-100  text-slate-600   border border-slate-200   font-semibold; }
+
+  /* Botón primario */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700
+           text-white text-sm font-semibold rounded-xl shadow-sm
+           transition-all duration-150 active:scale-95;
+  }
+
+  /* Botón secundario */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-white hover:bg-slate-50
+           text-slate-700 text-sm font-semibold rounded-xl border border-slate-200
+           transition-all duration-150 active:scale-95 shadow-sm;
+  }
+
+  /* Stat card en dashboard */
+  .stat-card {
+    @apply card p-5 flex flex-col gap-3;
+  }
+
+  /* Nav link activo en sidebar */
+  .nav-link-active {
+    @apply bg-indigo-50 text-indigo-700 font-semibold;
+    box-shadow: inset 3px 0 0 #4F46E5;
+  }
+}
+
+/* ─── Utilities extra ────────────────────────────────────────────────────── */
+@layer utilities {
+  .text-2xs  { font-size: 0.65rem;  line-height: 1rem;     }
+  .text-3xs  { font-size: 0.575rem; line-height: 0.875rem; }
+
+  .active\:scale-95:active  { transform: scale(0.95); }
+  .active\:scale-98:active  { transform: scale(0.98); }
+
+  /* Gradientes de marca */
+  .gradient-brand {
+    background: linear-gradient(135deg, #4F46E5 0%, #6366f1 100%);
+  }
+  .gradient-emerald {
+    background: linear-gradient(135deg, #059669 0%, #10B981 100%);
+  }
+  .gradient-amber {
+    background: linear-gradient(135deg, #D97706 0%, #F59E0B 100%);
+  }
+  .gradient-hero {
+    background: linear-gradient(135deg, #4F46E5 0%, #4338ca 60%, #3730a3 100%);
+  }
+}
+
+/* ─── Smooth Scroll ──────────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ─── Marquee Animations ─────────────────────────────────────────────────── */
+@keyframes marqueeLeft {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marqueeRight {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+.marquee-track--left {
+  animation: marqueeLeft 40s linear infinite;
+}
+
+.marquee-track--right {
+  animation: marqueeRight 44s linear infinite;
+}
+
+.marquee-wrap:hover .marquee-track--left,
+.marquee-wrap:hover .marquee-track--right {
+  animation-play-state: paused;
+}
+
+/* ─── Landing page utilities ─────────────────────────────────────────────── */
+.landing-section {
+  @apply py-20 px-4 sm:px-6 lg:px-8;
+}
+
+.landing-container {
+  @apply max-w-7xl mx-auto;
+}
+
+/* Fade-in-up animation for landing sections */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.65s ease forwards;
+}
+
+.animate-fade-in-up-delay-1 {
+  animation: fadeInUp 0.65s 0.15s ease both;
+}
+
+.animate-fade-in-up-delay-2 {
+  animation: fadeInUp 0.65s 0.30s ease both;
+}
+
+.animate-fade-in-up-delay-3 {
+  animation: fadeInUp 0.65s 0.45s ease both;
+}
+
+/* FAQ Accordion */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.25s ease;
+}
+
+.faq-answer.open {
+  max-height: 600px;
+}
