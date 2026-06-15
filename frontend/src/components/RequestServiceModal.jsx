@@ -28,7 +28,7 @@ const InputField = ({ label, id, name, type = 'text', placeholder, value, onChan
         transition-all outline-none
         ${error
           ? 'border-rose-300 focus:border-rose-500 focus:ring-3 focus:ring-rose-50 text-rose-900 placeholder-rose-300'
-          : 'border-slate-200 focus:border-indigo-500 focus:ring-3 focus:ring-indigo-50 text-slate-800 placeholder-slate-400'
+          : 'border-slate-200 focus:border-emerald-500 focus:ring-3 focus:ring-emerald-50 text-slate-800 placeholder-slate-400'
         }`}
       {...rest}
     />
@@ -45,7 +45,6 @@ const RequestServiceModal = ({ service, onClose }) => {
   const [formData, setFormData] = useState({
     message: '',
     contactPhone: '',
-    desiredDate: '',
     paymentMethod: 'CASH',
   });
 
@@ -80,12 +79,6 @@ const RequestServiceModal = ({ service, onClose }) => {
     } else if (formData.contactPhone.trim().length < 7) {
       errors.contactPhone = 'El teléfono debe tener al menos 7 dígitos.';
     }
-    if (!formData.desiredDate) {
-      errors.desiredDate = 'La fecha deseada de ejecución es obligatoria.';
-    } else {
-      const parsedDate = new Date(formData.desiredDate);
-      if (parsedDate < new Date()) errors.desiredDate = 'La fecha debe ser en el futuro.';
-    }
     if (!formData.paymentMethod) {
       errors.paymentMethod = 'El método de pago es obligatorio.';
     }
@@ -101,7 +94,6 @@ const RequestServiceModal = ({ service, onClose }) => {
         serviceId: service.id,
         message: formData.message.trim(),
         contactPhone: formData.contactPhone.trim(),
-        desiredDate: formData.desiredDate,
         paymentMethod: formData.paymentMethod,
       });
       setSuccess(true);
@@ -113,7 +105,7 @@ const RequestServiceModal = ({ service, onClose }) => {
         err.response.data.errors.forEach((e) => { errorsMap[e.campo] = e.mensaje; });
         setValidationErrors(errorsMap);
       } else {
-        setErrorMsg(err.response?.data?.message || 'Ocurrió un error inesperado al enviar la solicitud.');
+        setErrorMsg(err.response?.data?.message || 'Ocurrió un error inesperado al enviar la inscripción.');
       }
     } finally {
       setLoading(false);
@@ -133,7 +125,7 @@ const RequestServiceModal = ({ service, onClose }) => {
         animate-slideUp sm:animate-scaleIn overflow-hidden my-8">
 
         {/* Header del modal */}
-        <div className="relative bg-gradient-to-br from-indigo-600 to-indigo-700 p-5 text-white">
+        <div className="relative bg-gradient-to-br from-emerald-600 to-emerald-700 p-5 text-white">
           {/* Decoración */}
           <div className="absolute top-0 right-0 w-24 h-24 bg-white/5 rounded-full -mr-8 -mt-8 blur-xl" />
 
@@ -141,7 +133,7 @@ const RequestServiceModal = ({ service, onClose }) => {
             <div>
               <div className="inline-flex items-center gap-1.5 bg-white/15 border border-white/20 px-2.5 py-1 rounded-full mb-2">
                 <Icon d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" size="w-3 h-3" />
-                <span className="text-2xs font-bold uppercase tracking-widest">Nueva solicitud</span>
+                <span className="text-2xs font-bold uppercase tracking-widest">Nueva inscripción</span>
               </div>
               <h3 className="font-display font-bold text-base leading-tight line-clamp-1">
                 {service.title}
@@ -177,9 +169,9 @@ const RequestServiceModal = ({ service, onClose }) => {
                 <div className="absolute inset-0 rounded-full border-2 border-emerald-300 animate-ping opacity-30" />
               </div>
               <div>
-                <h4 className="text-base font-bold text-slate-800">¡Solicitud enviada!</h4>
+                <h4 className="text-base font-bold text-slate-800">¡Inscripción enviada!</h4>
                 <p className="text-xs text-slate-500 max-w-xs mx-auto mt-1.5 leading-relaxed">
-                  Tu solicitud fue registrada. El proveedor revisará tu mensaje y se pondrá en contacto a la brevedad.
+                  Tu inscripción fue registrada. El proveedor revisará tu mensaje y se pondrá en contacto a la brevedad.
                 </p>
               </div>
               <div className="inline-flex items-center gap-1.5 text-xs text-slate-400">
@@ -246,8 +238,8 @@ const RequestServiceModal = ({ service, onClose }) => {
                 </div>
               )}
 
-              {/* Fila: teléfono + fecha */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {/* Fila: teléfono */}
+              <div className="grid grid-cols-1 sm:grid-cols-1 gap-4">
                 <InputField
                   label="Teléfono de contacto"
                   id="contactPhone"
@@ -257,16 +249,6 @@ const RequestServiceModal = ({ service, onClose }) => {
                   onChange={handleChange}
                   error={validationErrors.contactPhone}
                   hint="Obligatorio"
-                />
-                <InputField
-                  label="Fecha deseada"
-                  id="desiredDate"
-                  name="desiredDate"
-                  type="date"
-                  value={formData.desiredDate}
-                  onChange={handleChange}
-                  error={validationErrors.desiredDate}
-                  hint="Futura"
                 />
               </div>
 
@@ -301,7 +283,7 @@ const RequestServiceModal = ({ service, onClose }) => {
                     transition-all outline-none resize-none
                     ${validationErrors.message
                       ? 'border-rose-300 focus:border-rose-500 focus:ring-3 focus:ring-rose-50'
-                      : 'border-slate-200 focus:border-indigo-500 focus:ring-3 focus:ring-indigo-50'
+                      : 'border-slate-200 focus:border-emerald-500 focus:ring-3 focus:ring-emerald-50'
                     }`}
                 />
                 {validationErrors.message && (
@@ -313,10 +295,10 @@ const RequestServiceModal = ({ service, onClose }) => {
               </div>
 
               {/* Nota informativa */}
-              <div className="flex items-start gap-2.5 p-3 bg-indigo-50/60 border border-indigo-100 rounded-xl">
-                <Icon d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" size="w-4 h-4 text-indigo-500 flex-shrink-0 mt-0.5" />
-                <p className="text-2xs text-indigo-700 leading-relaxed">
-                  El proveedor recibirá tu solicitud y decidirá aceptarla o rechazarla. Podrás hacer seguimiento desde <strong>Mis Solicitudes</strong>.
+              <div className="flex items-start gap-2.5 p-3 bg-emerald-50/60 border border-emerald-100 rounded-xl">
+                <Icon d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" size="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
+                <p className="text-2xs text-emerald-700 leading-relaxed">
+                  El proveedor recibirá tu inscripción y decidirá aceptarla o rechazarla. Podrás hacer seguimiento desde <strong>Mis Inscripciones</strong>.
                 </p>
               </div>
 
@@ -335,7 +317,7 @@ const RequestServiceModal = ({ service, onClose }) => {
                   type="submit"
                   disabled={loading}
                   className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5
-                    bg-indigo-600 hover:bg-indigo-700 active:scale-95
+                    bg-emerald-600 hover:bg-emerald-700 active:scale-95
                     text-white rounded-xl text-sm font-semibold shadow-sm hover:shadow
                     transition-all disabled:opacity-60"
                 >
@@ -347,7 +329,7 @@ const RequestServiceModal = ({ service, onClose }) => {
                   ) : (
                     <>
                       <Icon d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" size="w-4 h-4" />
-                      Enviar Solicitud
+                      Enviar Inscripción
                     </>
                   )}
                 </button>

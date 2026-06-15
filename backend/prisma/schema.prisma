@@ -95,7 +95,7 @@ model ServiceRequest {
   user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
   message      String
   contactPhone String
-  desiredDate  DateTime
+  desiredDate  DateTime?
   status       RequestStatus @default(PENDING)
   paymentMethod PaymentMethod @default(CASH)
 

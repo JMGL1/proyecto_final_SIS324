@@ -37,19 +37,19 @@ const ActionCard = ({ title, desc, href, icon, gradient }) => (
   <Link
     to={href}
     className="group relative bg-white rounded-2xl border border-slate-100 shadow-premium overflow-hidden
-      hover:shadow-premium-hover hover:border-indigo-100 hover:-translate-y-0.5 transition-all duration-200 p-5 flex flex-col gap-3"
+      hover:shadow-premium-hover hover:border-emerald-100 hover:-translate-y-0.5 transition-all duration-200 p-5 flex flex-col gap-3"
   >
     <div className={`absolute top-0 inset-x-0 h-1 ${gradient} rounded-t-2xl`} />
     <div className={`w-10 h-10 rounded-xl ${gradient} bg-opacity-10 flex items-center justify-center text-white shadow-sm`}>
       {icon}
     </div>
     <div>
-      <h4 className="text-sm font-bold text-slate-800 group-hover:text-indigo-700 transition-colors">
+      <h4 className="text-sm font-bold text-slate-800 group-hover:text-emerald-700 transition-colors">
         {title}
       </h4>
       <p className="text-xs text-slate-500 mt-1 leading-relaxed">{desc}</p>
     </div>
-    <div className="flex items-center gap-1 text-xs font-semibold text-indigo-600 mt-auto">
+    <div className="flex items-center gap-1 text-xs font-semibold text-emerald-600 mt-auto">
       Ir ahora
       <svg className="w-3.5 h-3.5 transform group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
@@ -82,7 +82,7 @@ const UserOverviewPage = () => {
   return (
     <div className="space-y-6 animate-fadeIn pb-8">
       {/* ── Banner de Bienvenida ── */}
-      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-indigo-500 via-indigo-600 to-indigo-700 text-white p-7 md:p-9 shadow-premium">
+      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-emerald-500 via-emerald-600 to-emerald-700 text-white p-7 md:p-9 shadow-premium">
         <div className="absolute -top-10 -right-10 w-48 h-48 bg-white/5 rounded-full blur-2xl" />
         <div className="absolute bottom-0 left-1/3 w-32 h-32 bg-white/5 rounded-full blur-xl" />
         <div className="absolute top-4 right-4 w-20 h-20 bg-white/5 rounded-full" />
@@ -102,7 +102,7 @@ const UserOverviewPage = () => {
             Resumen de tu cuenta
           </h2>
           <p className="mt-2 text-sm text-white/75 leading-relaxed">
-            Monitorea el progreso de tus solicitudes, revisa las notificaciones importantes y accede rápidamente a los servicios.
+            Monitorea el progreso de tus inscripciónes, revisa las notificaciones importantes y accede rápidamente a los talleres.
           </p>
         </div>
       </div>
@@ -121,9 +121,9 @@ const UserOverviewPage = () => {
           stats && (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               <StatCard
-                label="Solicitudes Realizadas"
+                label="Inscripciones Realizadas"
                 value={stats.stats.totalRequests}
-                color="indigo"
+                color="emerald"
                 sub="Contrataciones totales"
                 icon={<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>}
               />
@@ -162,11 +162,11 @@ const UserOverviewPage = () => {
             <SkeletonChart />
           ) : (
             stats && (
-              <ChartCard title="Estado de Solicitudes" subtitle="Detalle visual de tu actividad">
+              <ChartCard title="Estado de Inscripciones" subtitle="Detalle visual de tu actividad">
                 {stats.stats.totalRequests === 0 ? (
                   <EmptyState
-                    title="Aún no has hecho solicitudes"
-                    description="Visita el catálogo de servicios para contactar a tu primer proveedor."
+                    title="Aún no has hecho inscripciónes"
+                    description="Visita el catálogo de talleres para contactar a tu primer proveedor."
                   />
                 ) : (
                   <ResponsiveContainer width="100%" height={220}>
@@ -194,13 +194,13 @@ const UserOverviewPage = () => {
           <h3 className="text-sm font-bold text-slate-700 uppercase tracking-wider">Enlaces Útiles</h3>
           <ActionCard
             title="Explorar Catálogo"
-            desc="Busca profesionales y envía solicitudes en tu comunidad local."
+            desc="Busca profesionales y envía inscripciónes en tu comunidad local."
             href="/services/explore"
-            gradient="bg-gradient-to-br from-indigo-500 to-indigo-700"
+            gradient="bg-gradient-to-br from-emerald-500 to-emerald-700"
             icon={<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>}
           />
           <ActionCard
-            title="Mis Solicitudes"
+            title="Mis Inscripciones"
             desc="Revisa el estado detallado de tus contactos con hosts."
             href="/my-requests"
             gradient="bg-gradient-to-br from-emerald-500 to-emerald-600"

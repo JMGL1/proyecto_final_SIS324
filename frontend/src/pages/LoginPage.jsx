@@ -60,9 +60,9 @@ const LoginPage = () => {
   return (
     <div className="min-h-screen flex bg-slate-50 font-sans">
       {/* Columna Izquierda: Panel Hero (solo en desktop) */}
-      <div className="hidden lg:flex lg:w-1/2 relative bg-gradient-to-br from-indigo-900 via-brand-700 to-brand-600 text-white flex-col justify-between p-12 overflow-hidden">
+      <div className="hidden lg:flex lg:w-1/2 relative bg-gradient-to-br from-emerald-900 via-brand-700 to-brand-600 text-white flex-col justify-between p-12 overflow-hidden">
         {/* Decoraciones de fondo */}
-        <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-indigo-500/20 blur-3xl" />
+        <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-emerald-500/20 blur-3xl" />
         <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-emerald-500/10 blur-3xl" />
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:24px_24px]" />
 
@@ -82,9 +82,9 @@ const LoginPage = () => {
               Talento local de confianza
             </span>
             <h1 className="text-4xl xl:text-5xl font-display font-bold leading-tight tracking-tight">
-              Conecta con talentos locales y encuentra servicios de confianza.
+              Conecta con talentos locales y encuentra talleres de confianza.
             </h1>
-            <p className="text-indigo-200 text-base leading-relaxed">
+            <p className="text-emerald-200 text-base leading-relaxed">
               Únete a la red más activa de profesionales locales. Encuentra el especialista ideal para tu proyecto o comparte tu talento con la comunidad.
             </p>
           </div>
@@ -111,13 +111,13 @@ const LoginPage = () => {
 
             {/* Tarjeta 2 */}
             <div className="glass p-5 rounded-2xl border border-white/10 shadow-premium flex items-center gap-4 hover:translate-x-2 transition-transform duration-300 delay-100">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-indigo-400 to-indigo-500 flex items-center justify-center font-bold text-white text-lg shadow-sm">
+              <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-emerald-400 to-emerald-500 flex items-center justify-center font-bold text-white text-lg shadow-sm">
                 ER
               </div>
               <div className="flex-1">
                 <div className="flex justify-between items-start">
                   <h4 className="font-semibold text-slate-900 text-sm">Elena Rivas</h4>
-                  <span className="text-[10px] bg-indigo-500/10 text-indigo-700 px-2 py-0.5 rounded-full font-semibold">Diseño</span>
+                  <span className="text-[10px] bg-emerald-500/10 text-emerald-700 px-2 py-0.5 rounded-full font-semibold">Diseño</span>
                 </div>
                 <p className="text-xs text-slate-500 font-medium mt-0.5">Diseñadora de Interiores</p>
                 <div className="flex items-center gap-1 mt-1.5 text-xs text-amber-500 font-semibold">
@@ -130,7 +130,7 @@ const LoginPage = () => {
         </div>
 
         {/* Footer del Hero */}
-        <div className="relative z-10 text-xs text-indigo-200/60 flex justify-between items-center">
+        <div className="relative z-10 text-xs text-emerald-200/60 flex justify-between items-center">
           <span>© 2026 TallerioCapital. Todos los derechos reservados.</span>
           <div className="flex gap-4">
             <a href="#" className="hover:text-white transition-colors">Términos</a>
@@ -142,12 +142,12 @@ const LoginPage = () => {
       {/* Columna Derecha: Formulario */}
       <div className="w-full lg:w-1/2 flex flex-col justify-center items-center p-6 sm:p-12 md:p-20 relative bg-slate-50">
         {/* Fondo decorativo móvil */}
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-tr from-indigo-50/20 via-slate-50 to-indigo-50/20 pointer-events-none lg:hidden" />
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-tr from-emerald-50/20 via-slate-50 to-emerald-50/20 pointer-events-none lg:hidden" />
         
         <div className="w-full max-w-md relative z-10 space-y-8 animate-fadeIn">
           {/* Logo móvil */}
           <div className="lg:hidden text-center flex flex-col items-center">
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-indigo-600 to-indigo-700 flex items-center justify-center text-white font-display font-bold text-2xl shadow-premium mb-3">
+            <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-emerald-600 to-emerald-700 flex items-center justify-center text-white font-display font-bold text-2xl shadow-premium mb-3">
               C
             </div>
             <h1 className="text-2xl font-display font-bold text-slate-900">TallerioCapital</h1>
@@ -158,7 +158,7 @@ const LoginPage = () => {
               Bienvenido de nuevo
             </h2>
             <p className="mt-2 text-sm text-slate-500 leading-relaxed">
-              Ingresa a tu cuenta de TallerioCapital para gestionar tu talento local y servicios.
+              Ingresa a tu cuenta de TallerioCapital para gestionar tu talento local y talleres.
             </p>
           </div>
 
@@ -197,7 +197,7 @@ const LoginPage = () => {
                     className={`w-full pl-10 pr-4 py-3 bg-slate-50 border rounded-2xl text-sm focus:outline-none focus:ring-4 transition-all ${
                       validationErrors.email
                         ? 'border-rose-300 focus:ring-rose-100 focus:bg-white text-rose-950 placeholder-rose-300'
-                        : 'border-slate-200 focus:border-indigo-500 focus:ring-indigo-100 focus:bg-white text-slate-900'
+                        : 'border-slate-200 focus:border-emerald-500 focus:ring-emerald-100 focus:bg-white text-slate-900'
                     }`}
                   />
                 </div>
@@ -235,7 +235,7 @@ const LoginPage = () => {
                     className={`w-full pl-10 pr-4 py-3 bg-slate-50 border rounded-2xl text-sm focus:outline-none focus:ring-4 transition-all ${
                       validationErrors.password
                         ? 'border-rose-300 focus:ring-rose-100 focus:bg-white text-rose-950 placeholder-rose-300'
-                        : 'border-slate-200 focus:border-indigo-500 focus:ring-indigo-100 focus:bg-white text-slate-900'
+                        : 'border-slate-200 focus:border-emerald-500 focus:ring-emerald-100 focus:bg-white text-slate-900'
                     }`}
                   />
                 </div>
@@ -251,7 +251,7 @@ const LoginPage = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full flex items-center justify-center py-3 px-4 rounded-2xl text-sm font-semibold text-white bg-indigo-600 hover:bg-indigo-750 active:scale-98 focus:ring-4 focus:ring-indigo-100 disabled:bg-indigo-400 disabled:cursor-not-allowed transition-all duration-200 shadow-md hover:shadow-lg"
+                className="w-full flex items-center justify-center py-3 px-4 rounded-2xl text-sm font-semibold text-white bg-emerald-600 hover:bg-emerald-750 active:scale-98 focus:ring-4 focus:ring-emerald-100 disabled:bg-emerald-400 disabled:cursor-not-allowed transition-all duration-200 shadow-md hover:shadow-lg"
               >
                 {isSubmitting ? (
                   <div className="flex items-center gap-2">
@@ -273,7 +273,7 @@ const LoginPage = () => {
             ¿No tienes una cuenta?{' '}
             <Link
               to="/register"
-              className="font-semibold text-indigo-600 hover:text-indigo-700 hover:underline transition-all"
+              className="font-semibold text-emerald-600 hover:text-emerald-700 hover:underline transition-all"
             >
               Crea tu cuenta aquí
             </Link>

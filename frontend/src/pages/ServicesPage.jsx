@@ -81,7 +81,7 @@ const ServicesPage = () => {
       const response = await serviceService.getMyServices();
       setServices(response.data || []);
     } catch (error) {
-      setErrorMsg(error.response?.data?.message || 'No se pudo obtener la lista de servicios.');
+      setErrorMsg(error.response?.data?.message || 'No se pudo obtener la lista de talleres.');
     } finally {
       setLoading(false);
     }
@@ -96,14 +96,14 @@ const ServicesPage = () => {
     setSuccessMsg('');
     try {
       await serviceService.deleteService(serviceToDelete.id);
-      setSuccessMsg(`Servicio "${serviceToDelete.title}" eliminado con éxito.`);
+      setSuccessMsg(`Taller "${serviceToDelete.title}" eliminado con éxito.`);
       setServices((prev) => prev.filter((s) => s.id !== serviceToDelete.id));
       setDeleteModalOpen(false);
       setServiceToDelete(null);
       setTimeout(() => setSuccessMsg(''), 4000);
     } catch (err) {
       console.error(err);
-      setErrorMsg(err.response?.data?.message || 'No se pudo eliminar el servicio.');
+      setErrorMsg(err.response?.data?.message || 'No se pudo eliminar el taller.');
       setDeleteModalOpen(false);
     } finally {
       setDeleting(false);
@@ -133,7 +133,7 @@ const ServicesPage = () => {
       {/* Encabezado */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h2 className="text-xl font-display font-bold text-slate-900 md:text-2xl">Mis Servicios</h2>
+          <h2 className="text-xl font-display font-bold text-slate-900 md:text-2xl">Mis Talleres</h2>
           <p className="text-xs text-slate-500 mt-1">
             Administra tus ofertas, edita campos y sigue su estado de aprobación.
           </p>
@@ -141,11 +141,11 @@ const ServicesPage = () => {
         <Link
           to="/services/create"
           className="inline-flex items-center justify-center gap-2 px-4 py-2.5
-            bg-indigo-600 hover:bg-indigo-700 active:scale-95
+            bg-emerald-600 hover:bg-emerald-700 active:scale-95
             text-white rounded-xl text-sm font-semibold shadow-sm hover:shadow transition-all"
         >
           <Icon d="M12 4v16m8-8H4" size="w-4 h-4" stroke={2.5} />
-          Crear Servicio
+          Crear Taller
         </Link>
       </div>
 
@@ -183,12 +183,12 @@ const ServicesPage = () => {
       {/* Toolbar: búsqueda + toggle de vista */}
       <div className="bg-white border border-slate-100 rounded-2xl shadow-premium p-3 flex items-center gap-3">
         <label className="flex-1 flex items-center gap-2.5 border border-slate-200 rounded-xl px-3.5 py-2.5
-          bg-slate-50/50 hover:bg-white focus-within:bg-white focus-within:border-indigo-500
-          focus-within:ring-3 focus-within:ring-indigo-50 transition-all cursor-text">
+          bg-slate-50/50 hover:bg-white focus-within:bg-white focus-within:border-emerald-500
+          focus-within:ring-3 focus-within:ring-emerald-50 transition-all cursor-text">
           <Icon d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" size="w-4 h-4 text-slate-400 flex-shrink-0" />
           <input
             type="text"
-            placeholder="Buscar servicios por título, categoría o estado..."
+            placeholder="Buscar talleres por título, categoría o estado..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full bg-transparent border-0 p-0 text-sm text-slate-700 placeholder-slate-400 focus:ring-0 outline-none"
@@ -226,7 +226,7 @@ const ServicesPage = () => {
           <table className="w-full">
             <thead>
               <tr className="bg-slate-50 border-b border-slate-100">
-                {['Servicio', 'Categoría', 'Precio', 'Estado', 'Acciones'].map((h) => (
+                {['Taller', 'Categoría', 'Precio', 'Estado', 'Acciones'].map((h) => (
                   <th key={h} className="py-3.5 px-5 text-left text-2xs font-bold text-slate-400 uppercase tracking-wider">{h}</th>
                 ))}
               </tr>
@@ -241,18 +241,18 @@ const ServicesPage = () => {
           </div>
           <div>
             <h3 className="text-sm font-bold text-slate-700">
-              {searchQuery ? 'Sin resultados' : 'Aún no tienes servicios'}
+              {searchQuery ? 'Sin resultados' : 'Aún no tienes talleres'}
             </h3>
             <p className="text-xs text-slate-400 max-w-sm mx-auto mt-1 leading-relaxed">
               {searchQuery
                 ? 'Intenta cambiar los términos de búsqueda.'
-                : 'Crea tu primer servicio para que los clientes puedan encontrarte.'}
+                : 'Crea tu primer taller para que los clientes puedan encontrarte.'}
             </p>
           </div>
           {!searchQuery && (
-            <Link to="/services/create" className="inline-flex items-center gap-2 px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-sm font-semibold shadow-sm transition-all">
+            <Link to="/services/create" className="inline-flex items-center gap-2 px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-sm font-semibold shadow-sm transition-all">
               <Icon d="M12 4v16m8-8H4" size="w-4 h-4" />
-              Crear primer servicio
+              Crear primer taller
             </Link>
           )}
         </div>
@@ -263,7 +263,7 @@ const ServicesPage = () => {
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="bg-slate-50/60 border-b border-slate-100">
-                  <th className="py-3.5 px-5 text-2xs font-bold text-slate-400 uppercase tracking-wider">Servicio</th>
+                  <th className="py-3.5 px-5 text-2xs font-bold text-slate-400 uppercase tracking-wider">Taller</th>
                   <th className="py-3.5 px-5 text-2xs font-bold text-slate-400 uppercase tracking-wider">Categoría</th>
                   <th className="py-3.5 px-5 text-2xs font-bold text-slate-400 uppercase tracking-wider text-right">Precio</th>
                   <th className="py-3.5 px-5 text-2xs font-bold text-slate-400 uppercase tracking-wider text-center">Estado</th>
@@ -274,7 +274,7 @@ const ServicesPage = () => {
                 {filteredServices.map((service) => (
                   <tr key={service.id} className="hover:bg-slate-50/50 transition-colors group">
                     <td className="py-4 px-5">
-                      <p className="text-sm font-semibold text-slate-800 group-hover:text-indigo-700 transition-colors">
+                      <p className="text-sm font-semibold text-slate-800 group-hover:text-emerald-700 transition-colors">
                         {service.title}
                       </p>
                       <p className="text-2xs text-slate-400 max-w-xs truncate mt-0.5">{service.description}</p>
@@ -290,8 +290,8 @@ const ServicesPage = () => {
                           to={`/services/${service.id}/edit`}
                           state={{ service }}
                           title="Editar"
-                          className="p-2 rounded-lg text-slate-400 hover:text-indigo-600 hover:bg-indigo-50
-                            border border-transparent hover:border-indigo-100 transition-all"
+                          className="p-2 rounded-lg text-slate-400 hover:text-emerald-600 hover:bg-emerald-50
+                            border border-transparent hover:border-emerald-100 transition-all"
                         >
                           <Icon d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" size="w-4 h-4" stroke={1.8} />
                         </Link>
@@ -311,7 +311,7 @@ const ServicesPage = () => {
             </table>
           </div>
           <div className="px-5 py-3 border-t border-slate-50 bg-slate-50/30">
-            <p className="text-2xs text-slate-400">{filteredServices.length} servicio{filteredServices.length !== 1 ? 's' : ''} encontrado{filteredServices.length !== 1 ? 's' : ''}</p>
+            <p className="text-2xs text-slate-400">{filteredServices.length} taller{filteredServices.length !== 1 ? 's' : ''} encontrado{filteredServices.length !== 1 ? 's' : ''}</p>
           </div>
         </div>
       ) : (
@@ -319,7 +319,7 @@ const ServicesPage = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {filteredServices.map((service) => (
             <div key={service.id} className="group bg-white rounded-2xl border border-slate-100 shadow-premium overflow-hidden
-              hover:shadow-premium-hover hover:border-indigo-100 hover:-translate-y-0.5 transition-all duration-200">
+              hover:shadow-premium-hover hover:border-emerald-100 hover:-translate-y-0.5 transition-all duration-200">
               {/* Banda estado */}
               <div className={`h-1 ${service.status === 'APPROVED' ? 'bg-emerald-400' : service.status === 'REJECTED' ? 'bg-rose-400' : 'bg-amber-400'}`} />
               <div className="p-4 space-y-3">
@@ -328,16 +328,16 @@ const ServicesPage = () => {
                   <StatusBadge status={service.status} />
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold text-slate-800 group-hover:text-indigo-700 transition-colors line-clamp-1">{service.title}</h3>
+                  <h3 className="text-sm font-bold text-slate-800 group-hover:text-emerald-700 transition-colors line-clamp-1">{service.title}</h3>
                   <p className="text-xs text-slate-500 mt-1 line-clamp-2 leading-relaxed">{service.description}</p>
                 </div>
                 <div className="flex items-center justify-between pt-3 border-t border-slate-50">
-                  <span className="text-base font-extrabold font-display text-indigo-600">${Number(service.price).toFixed(2)}</span>
+                  <span className="text-base font-extrabold font-display text-emerald-600">${Number(service.price).toFixed(2)}</span>
                   <div className="flex items-center gap-1">
                     <Link
                       to={`/services/${service.id}/edit`}
                       state={{ service }}
-                      className="p-1.5 rounded-lg text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 border border-transparent hover:border-indigo-100 transition-all"
+                      className="p-1.5 rounded-lg text-slate-400 hover:text-emerald-600 hover:bg-emerald-50 border border-transparent hover:border-emerald-100 transition-all"
                     >
                       <Icon d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" size="w-4 h-4" stroke={1.8} />
                     </Link>
@@ -367,9 +367,9 @@ const ServicesPage = () => {
                 <Icon d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" size="w-6 h-6" stroke={1.8} />
               </div>
               <div>
-                <h3 className="font-bold text-slate-800 text-sm">¿Eliminar este servicio?</h3>
+                <h3 className="font-bold text-slate-800 text-sm">¿Eliminar este taller?</h3>
                 <p className="text-xs text-slate-500 mt-1.5 leading-relaxed">
-                  Se eliminará permanentemente el servicio <strong>"{serviceToDelete?.title}"</strong>. Esta acción no se puede deshacer.
+                  Se eliminará permanentemente el taller <strong>"{serviceToDelete?.title}"</strong>. Esta acción no se puede deshacer.
                 </p>
               </div>
               <div className="flex gap-3">

@@ -11,7 +11,7 @@ import statsService from '../services/statsService.js';
 /* Ícono de logo TallerioCapital */
 const CotalLogo = () => (
   <div className="relative w-8 h-8 flex-shrink-0">
-    <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-indigo-500 via-indigo-600 to-indigo-700 flex items-center justify-center shadow-glow-indigo">
+    <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-emerald-500 via-emerald-600 to-emerald-700 flex items-center justify-center shadow-glow-emerald">
       <span className="text-white font-display font-bold text-base leading-none select-none">C</span>
     </div>
     <div className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-emerald-400 rounded-full border-2 border-white" />
@@ -26,7 +26,7 @@ const UserAvatar = ({ user, size = 'md' }) => {
     lg: 'w-11 h-11 text-base',
   };
   const gradient = user?.rol === 'ADMIN'
-    ? 'from-indigo-500 to-indigo-600'
+    ? 'from-emerald-500 to-emerald-600'
     : user?.rol === 'HOST'
     ? 'from-emerald-500 to-emerald-600'
     : 'from-slate-400 to-slate-500';
@@ -41,7 +41,7 @@ const UserAvatar = ({ user, size = 'md' }) => {
 /* Badge de rol */
 const RoleBadge = ({ role }) => {
   const variants = {
-    ADMIN: 'bg-indigo-50 text-indigo-600 border-indigo-100 ring-1 ring-indigo-200/50',
+    ADMIN: 'bg-emerald-50 text-emerald-600 border-emerald-100 ring-1 ring-emerald-200/50',
     HOST:  'bg-emerald-50 text-emerald-600 border-emerald-100 ring-1 ring-emerald-200/50',
     USER:  'bg-slate-100 text-slate-500 border-slate-200',
   };
@@ -84,22 +84,22 @@ const buildNavigation = (role) => {
     return [
       ...base,
       { name: 'Usuarios', href: '/users', icon: 'users', group: 'administración' },
-      { name: 'Servicios Pendientes', href: '/services/pending', icon: 'pending', group: 'administración' },
+      { name: 'Talleres Pendientes', href: '/services/pending', icon: 'pending', group: 'administración' },
     ];
   }
   if (role === 'HOST') {
     return [
       ...base,
-      { name: 'Mis Servicios', href: '/services', icon: 'services', group: 'gestión' },
-      { name: 'Solicitudes Recibidas', href: '/service-requests', icon: 'requests', group: 'gestión' },
+      { name: 'Mis Talleres', href: '/services', icon: 'services', group: 'gestión' },
+      { name: 'Inscripciones Recibidas', href: '/service-requests', icon: 'requests', group: 'gestión' },
       { name: 'Mensajes', href: '/messages', icon: 'messages', group: 'comunicación' },
     ];
   }
   if (role === 'USER') {
     return [
       ...base,
-      { name: 'Explorar Servicios', href: '/services/explore', icon: 'explore', group: 'descubrir' },
-      { name: 'Mis Solicitudes', href: '/my-requests', icon: 'myRequests', group: 'descubrir' },
+      { name: 'Explorar Talleres', href: '/services/explore', icon: 'explore', group: 'descubrir' },
+      { name: 'Mis Inscripciones', href: '/my-requests', icon: 'myRequests', group: 'descubrir' },
     ];
   }
   return base;
@@ -116,12 +116,12 @@ const NavLink = ({ item, isActive, isCollapsed, onClick }) => {
       className={`group relative flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm
         font-medium transition-all duration-150 outline-none
         ${active
-          ? 'bg-indigo-50 text-indigo-700 shadow-[inset_3px_0_0_#4F46E5]'
+          ? 'bg-emerald-50 text-emerald-700 shadow-[inset_3px_0_0_#4F46E5]'
           : 'text-slate-500 hover:text-slate-900 hover:bg-slate-50/80'
         }`}
     >
       {/* Ícono */}
-      <span className={`transition-transform duration-150 group-hover:scale-105 ${active ? 'text-indigo-600' : ''}`}>
+      <span className={`transition-transform duration-150 group-hover:scale-105 ${active ? 'text-emerald-600' : ''}`}>
         <NavIcon d={ICONS[item.icon]} />
       </span>
 
@@ -132,7 +132,7 @@ const NavLink = ({ item, isActive, isCollapsed, onClick }) => {
 
       {/* Punto indicador activo cuando está colapsado */}
       {isCollapsed && active && (
-        <span className="absolute right-1.5 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-indigo-600" />
+        <span className="absolute right-1.5 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-emerald-600" />
       )}
     </Link>
   );
@@ -206,7 +206,7 @@ const DashboardLayout = () => {
                 TallerioCapital
               </span>
               <span className="text-2xs text-slate-400 font-medium leading-none mt-0.5 block">
-                Plataforma de servicios
+                Plataforma de talleres
               </span>
             </div>
           )}
@@ -225,7 +225,7 @@ const DashboardLayout = () => {
         {collapsed && (
           <button
             onClick={() => setIsCollapsed(false)}
-            className="absolute bottom-auto top-[1.15rem] right-0 translate-x-1/2 z-10 w-6 h-6 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-500 hover:text-indigo-600 hover:border-indigo-200 transition-colors"
+            className="absolute bottom-auto top-[1.15rem] right-0 translate-x-1/2 z-10 w-6 h-6 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-500 hover:text-emerald-600 hover:border-emerald-200 transition-colors"
             title="Expandir"
           >
             <svg className="w-3 h-3 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -381,8 +381,8 @@ const DashboardLayout = () => {
           {/* Right side — perfil rápido */}
           <div className="flex items-center gap-3">
             {/* Indicador de entorno */}
-            <span className="hidden md:inline-flex items-center gap-1.5 px-2.5 py-1 bg-indigo-50 text-indigo-700 border border-indigo-100 rounded-full text-2xs font-semibold">
-              <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse inline-block" />
+            <span className="hidden md:inline-flex items-center gap-1.5 px-2.5 py-1 bg-emerald-50 text-emerald-700 border border-emerald-100 rounded-full text-2xs font-semibold">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse inline-block" />
               Sesión Activa
             </span>
 

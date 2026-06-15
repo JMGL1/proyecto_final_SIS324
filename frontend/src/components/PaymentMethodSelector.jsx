@@ -5,7 +5,7 @@ export default function PaymentMethodSelector({ value, onChange }) {
     {
       id: 'CASH',
       title: 'Pago en Efectivo',
-      desc: 'Pago directo al ofertante al finalizar el servicio.',
+      desc: 'Pago directo al ofertante al finalizar el taller.',
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -47,15 +47,15 @@ export default function PaymentMethodSelector({ value, onChange }) {
               key={opt.id}
               type="button"
               onClick={() => onChange(opt.id)}
-              className={`flex items-start gap-4 p-4 rounded-2xl border text-left transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 ${
+              className={`flex items-start gap-4 p-4 rounded-2xl border text-left transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 ${
                 isSelected
-                  ? 'border-indigo-600 bg-indigo-50/60 shadow-sm text-indigo-900'
+                  ? 'border-emerald-600 bg-emerald-50/60 shadow-sm text-emerald-900'
                   : 'border-slate-200 hover:border-slate-300 bg-white text-slate-700'
               }`}
             >
               <div
                 className={`p-2.5 rounded-xl flex-shrink-0 transition-colors ${
-                  isSelected ? 'bg-indigo-600 text-white' : 'bg-slate-50 text-slate-500'
+                  isSelected ? 'bg-emerald-600 text-white' : 'bg-slate-50 text-slate-500'
                 }`}
               >
                 {opt.icon}

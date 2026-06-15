@@ -23,18 +23,18 @@ const CATEGORIES = [
 const STEPS = [
   {
     icon: "🔍",
-    title: "Explorá servicios",
-    desc: "Buscá entre cientos de servicios verificados cerca tuyo o en línea.",
+    title: "Explorá talleres",
+    desc: "Buscá entre cientos de talleres verificados cerca tuyo o en línea.",
   },
   {
     icon: "📩",
-    title: "Enviá tu solicitud",
+    title: "Enviá tu inscripción",
     desc: "Completá el formulario con tu fecha ideal y un mensaje al prestador.",
   },
   {
     icon: "✅",
     title: "Confirmá y listo",
-    desc: "El HOST acepta tu solicitud y te contacta para coordinar los detalles.",
+    desc: "El HOST acepta tu inscripción y te contacta para coordinar los detalles.",
   },
 ];
 
@@ -62,7 +62,7 @@ const FEATURES = [
   {
     icon: "💬",
     title: "Comunicación directa",
-    desc: "Enviá mensajes personalizados cuando hacés una solicitud.",
+    desc: "Enviá mensajes personalizados cuando hacés una inscripción.",
   },
   {
     icon: "📱",
@@ -89,7 +89,7 @@ const TESTIMONIALS = [
   {
     name: "Valentina G.",
     role: "Usuaria",
-    text: "Me encanta que puedo ver el historial de mis solicitudes y saber si fueron aceptadas o no.",
+    text: "Me encanta que puedo ver el historial de mis inscripciones y saber si fueron aceptadas o no.",
     avatar: "V",
     color: "#F59E0B",
   },
@@ -98,29 +98,29 @@ const TESTIMONIALS = [
 const FAQS = [
   {
     q: "¿TallerioCapital es gratuito?",
-    a: "Para los usuarios que buscan servicios, sí, completamente gratuito. Los HOSTs (prestadores) se registran también sin costo inicial.",
+    a: "Para los usuarios que buscan talleres, sí, completamente gratuito. Los HOSTs (prestadores) se registran también sin costo inicial.",
   },
   {
     q: "¿Cómo me registro como HOST?",
-    a: 'Al crear tu cuenta en TallerioCapital, elegís el rol "HOST". Desde tu panel podés crear y gestionar tus servicios y recibir solicitudes.',
+    a: 'Al crear tu cuenta en TallerioCapital, elegís el rol "HOST". Desde tu panel podés crear y gestionar tus talleres y recibir inscripciónes.',
   },
   {
-    q: "¿Cómo sé si mi solicitud fue aceptada?",
-    a: 'En tu sección "Mis solicitudes" podés ver el estado de cada una: PENDIENTE, ACEPTADA o RECHAZADA en tiempo real.',
+    q: "¿Cómo sé si mi inscripción fue aceptada?",
+    a: 'En tu sección "Mis inscripciónes" podés ver el estado de cada una: PENDIENTE, ACEPTADA o RECHAZADA en tiempo real.',
   },
   {
-    q: "¿Puedo cancelar una solicitud enviada?",
-    a: "Por ahora las solicitudes quedan registradas para transparencia. En futuras versiones incorporaremos cancelaciones.",
+    q: "¿Puedo cancelar una inscripción enviada?",
+    a: "Por ahora las inscripciónes quedan registradas para transparencia. En futuras versiones incorporaremos cancelaciones.",
   },
   {
-    q: "¿Qué categorías de servicios están disponibles?",
+    q: "¿Qué categorías de talleres están disponibles?",
     a: "Hay más de 12 categorías: Música, Tecnología, Educación, Limpieza, Salud, Hogar, Transporte, Gastronomía, Mascotas, Bienestar, Arte & Diseño y Fitness.",
   },
 ];
 
 const STATS = [
-  { value: "500+", label: "Servicios publicados" },
-  { value: "1.200+", label: "Solicitudes enviadas" },
+  { value: "500+", label: "Talleres publicados" },
+  { value: "1.200+", label: "Inscripciones enviadas" },
   { value: "98%", label: "Tasa de satisfacción" },
   { value: "12", label: "Categorías disponibles" },
 ];
@@ -167,12 +167,12 @@ function FaqItem({ q, a }) {
     <div className="border border-slate-200 rounded-2xl overflow-hidden">
       <button
         onClick={() => setOpen((o) => !o)}
-        className="w-full flex justify-between items-center px-6 py-5 text-left hover:bg-indigo-50 transition-colors"
+        className="w-full flex justify-between items-center px-6 py-5 text-left hover:bg-emerald-50 transition-colors"
         aria-expanded={open}
       >
         <span className="font-semibold text-slate-800">{q}</span>
         <span
-          className="ml-4 flex-shrink-0 text-indigo-600 text-xl transition-transform duration-300"
+          className="ml-4 flex-shrink-0 text-emerald-600 text-xl transition-transform duration-300"
           style={{ transform: open ? "rotate(45deg)" : "rotate(0deg)" }}
         >
           +
@@ -211,7 +211,7 @@ function LandingNavbar() {
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center gap-2">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-700 flex items-center justify-center shadow-lg">
+          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-700 flex items-center justify-center shadow-lg">
             <span className="text-white font-black text-sm">C</span>
           </div>
           <span
@@ -229,7 +229,7 @@ function LandingNavbar() {
             to="/login"
             className={`text-sm font-semibold px-4 py-2 rounded-xl transition-colors ${
               scrolled
-                ? "text-slate-700 hover:text-indigo-600"
+                ? "text-slate-700 hover:text-emerald-600"
                 : "text-white/90 hover:text-white"
             }`}
           >
@@ -237,7 +237,7 @@ function LandingNavbar() {
           </Link>
           <Link
             to="/register"
-            className="text-sm font-bold px-5 py-2.5 rounded-xl bg-white text-indigo-700 hover:bg-indigo-50 shadow transition-all hover:shadow-md"
+            className="text-sm font-bold px-5 py-2.5 rounded-xl bg-white text-emerald-700 hover:bg-emerald-50 shadow transition-all hover:shadow-md"
           >
             Crear cuenta
           </Link>
@@ -309,14 +309,14 @@ export default function LandingPage() {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-white/90 text-sm font-medium mb-8 backdrop-blur-sm animate-fade-in-up">
             <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            Plataforma de servicios en línea
+            Plataforma de talleres en línea
           </div>
 
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-tight mb-6 animate-fade-in-up-delay-1">
             Conectá con los{" "}
             <span className="relative inline-block">
               <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-yellow-200">
-                mejores servicios
+                mejores talleres
               </span>
             </span>{" "}
             de tu zona
@@ -324,7 +324,7 @@ export default function LandingPage() {
 
           <p className="text-lg sm:text-xl text-white/75 max-w-2xl mx-auto mb-10 animate-fade-in-up-delay-2">
             TallerioCapital es la plataforma donde encontrás prestadores verificados, hacés
-            solicitudes en segundos y seguís el estado de tus pedidos en tiempo
+            inscripciónes en segundos y seguís el estado de tus pedidos en tiempo
             real.
           </p>
 
@@ -332,7 +332,7 @@ export default function LandingPage() {
             <Link
               to="/register"
               id="hero-cta-register"
-              className="px-8 py-4 rounded-2xl bg-white text-indigo-700 font-bold text-base shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-200"
+              className="px-8 py-4 rounded-2xl bg-white text-emerald-700 font-bold text-base shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-200"
             >
               Crear cuenta gratis →
             </Link>
@@ -363,7 +363,7 @@ export default function LandingPage() {
         <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {STATS.map((s) => (
             <div key={s.label}>
-              <p className="text-4xl font-black text-indigo-600 mb-1">{s.value}</p>
+              <p className="text-4xl font-black text-emerald-600 mb-1">{s.value}</p>
               <p className="text-sm text-slate-500 font-medium">{s.label}</p>
             </div>
           ))}
@@ -382,7 +382,7 @@ export default function LandingPage() {
               visible.how ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            <span className="text-indigo-600 font-bold text-sm uppercase tracking-widest">
+            <span className="text-emerald-600 font-bold text-sm uppercase tracking-widest">
               Cómo funciona
             </span>
             <h2 className="text-4xl font-black text-slate-900 mt-2">
@@ -399,7 +399,7 @@ export default function LandingPage() {
                 }`}
                 style={{ transitionDelay: `${i * 0.12}s` }}
               >
-                <div className="absolute -top-5 left-8 w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center font-black text-sm shadow-lg">
+                <div className="absolute -top-5 left-8 w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center font-black text-sm shadow-lg">
                   {i + 1}
                 </div>
                 <div className="text-5xl mb-4 mt-2">{step.icon}</div>
@@ -412,13 +412,13 @@ export default function LandingPage() {
       </section>
 
       {/* ── CATEGORIES MARQUEE (standalone section) ───────────────────────── */}
-      <section className="py-16 bg-gradient-to-r from-indigo-50 via-white to-indigo-50 overflow-hidden">
+      <section className="py-16 bg-gradient-to-r from-emerald-50 via-white to-emerald-50 overflow-hidden">
         <div className="text-center mb-10">
-          <span className="text-indigo-600 font-bold text-sm uppercase tracking-widest">
+          <span className="text-emerald-600 font-bold text-sm uppercase tracking-widest">
             Categorías
           </span>
           <h2 className="text-3xl font-black text-slate-900 mt-2">
-            Servicios para cada necesidad
+            Talleres para cada necesidad
           </h2>
         </div>
         <div className="space-y-4">
@@ -484,7 +484,7 @@ export default function LandingPage() {
                 : "opacity-0 translate-y-8"
             }`}
           >
-            <span className="text-indigo-200 font-bold text-sm uppercase tracking-widest">
+            <span className="text-emerald-200 font-bold text-sm uppercase tracking-widest">
               Testimonios
             </span>
             <h2 className="text-4xl font-black text-white mt-2">
@@ -565,21 +565,21 @@ export default function LandingPage() {
               ¿Listo para empezar?
             </h2>
             <p className="text-slate-500 text-lg mb-10">
-              Uníte a TallerioCapital y encontrá el servicio que necesitás — o empezá a
+              Uníte a TallerioCapital y encontrá el taller que necesitás — o empezá a
               ofrecer el tuyo.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/register"
                 id="footer-cta-register"
-                className="px-10 py-4 rounded-2xl bg-indigo-600 text-white font-bold hover:bg-indigo-700 shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200"
+                className="px-10 py-4 rounded-2xl bg-emerald-600 text-white font-bold hover:bg-emerald-700 shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200"
               >
                 Crear cuenta gratis →
               </Link>
               <Link
                 to="/login"
                 id="footer-cta-login"
-                className="px-10 py-4 rounded-2xl border-2 border-slate-200 text-slate-700 font-bold hover:border-indigo-300 hover:text-indigo-600 transition-all duration-200"
+                className="px-10 py-4 rounded-2xl border-2 border-slate-200 text-slate-700 font-bold hover:border-emerald-300 hover:text-emerald-600 transition-all duration-200"
               >
                 Ya tengo cuenta
               </Link>
@@ -592,13 +592,13 @@ export default function LandingPage() {
       <footer className="bg-slate-900 text-slate-400 py-10 px-6">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-indigo-400 to-indigo-600 flex items-center justify-center">
+            <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center">
               <span className="text-white font-black text-xs">C</span>
             </div>
             <span className="text-white font-bold">TallerioCapital</span>
           </div>
           <p className="text-sm text-center">
-            © {new Date().getFullYear()} TallerioCapital — Plataforma de servicios locales.
+            © {new Date().getFullYear()} TallerioCapital — Plataforma de talleres locales.
             Todos los derechos reservados.
           </p>
           <div className="flex gap-5 text-sm">

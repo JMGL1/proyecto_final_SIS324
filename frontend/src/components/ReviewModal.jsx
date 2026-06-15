@@ -38,10 +38,10 @@ export default function ReviewModal({ isOpen, onClose, request, onSuccess }) {
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
       <div className="bg-white rounded-3xl w-full max-w-md shadow-2xl border border-slate-100 overflow-hidden animate-fade-in-up">
         {/* Header */}
-        <div className="bg-gradient-to-r from-indigo-600 to-indigo-800 px-6 py-5 text-white flex justify-between items-center">
+        <div className="bg-gradient-to-r from-emerald-600 to-emerald-800 px-6 py-5 text-white flex justify-between items-center">
           <div>
-            <h3 className="font-bold text-lg">Calificar servicio</h3>
-            <p className="text-indigo-200 text-xs mt-0.5">{request.service?.title}</p>
+            <h3 className="font-bold text-lg">Calificar taller</h3>
+            <p className="text-emerald-200 text-xs mt-0.5">{request.service?.title}</p>
           </div>
           <button
             onClick={onClose}
@@ -63,7 +63,7 @@ export default function ReviewModal({ isOpen, onClose, request, onSuccess }) {
           <div className="flex flex-col items-center gap-2 py-2">
             <span className="text-slate-500 text-xs font-semibold uppercase tracking-wider">¿Qué calificación le das?</span>
             <RatingStars rating={rating} interactive={true} onChange={setRating} size={8} />
-            <span className="text-indigo-600 font-bold text-sm mt-1">
+            <span className="text-emerald-600 font-bold text-sm mt-1">
               {rating === 5 && '🌟 ¡Excelente!'}
               {rating === 4 && '👍 Muy Bueno'}
               {rating === 3 && '👌 Bueno'}
@@ -81,7 +81,7 @@ export default function ReviewModal({ isOpen, onClose, request, onSuccess }) {
               placeholder="Cuéntanos un poco sobre tu experiencia con el prestador..."
               rows={3}
               maxLength={200}
-              className="w-full px-4 py-3 rounded-xl border border-slate-200 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all text-sm resize-none"
+              className="w-full px-4 py-3 rounded-xl border border-slate-200 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all text-sm resize-none"
             />
             <div className="text-right text-2xs text-slate-400">
               {comment.length}/200 caracteres
@@ -101,7 +101,7 @@ export default function ReviewModal({ isOpen, onClose, request, onSuccess }) {
             <button
               type="submit"
               disabled={loading}
-              className="flex-1 px-5 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold shadow-lg hover:shadow-indigo-500/25 disabled:opacity-50 active:scale-95 transition-all text-sm"
+              className="flex-1 px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold shadow-lg hover:shadow-emerald-500/25 disabled:opacity-50 active:scale-95 transition-all text-sm"
             >
               {loading ? 'Enviando...' : 'Enviar calificación'}
             </button>

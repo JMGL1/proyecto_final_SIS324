@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import serviceService from '../services/serviceService.js';
 
 /**
- * Formulario de creación de servicios para HOST
+ * Formulario de creación de talleres para HOST
  */
 const CreateServicePage = () => {
   const navigate = useNavigate();
@@ -94,7 +94,7 @@ const CreateServicePage = () => {
         });
         setValidationErrors(errorsMap);
       } else {
-        setErrorMsg(err.response?.data?.message || 'Hubo un error al crear el servicio.');
+        setErrorMsg(err.response?.data?.message || 'Hubo un error al crear el taller.');
       }
     } finally {
       setLoading(false);
@@ -112,11 +112,11 @@ const CreateServicePage = () => {
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
           </svg>
-          Volver a Mis Servicios
+          Volver a Mis Talleres
         </Link>
-        <h2 className="text-xl font-bold text-slate-900 md:text-2xl">Crear Nuevo Servicio</h2>
+        <h2 className="text-xl font-bold text-slate-900 md:text-2xl">Crear Nuevo Taller</h2>
         <p className="text-xs text-slate-500">
-          Publica un nuevo servicio en la plataforma. Será enviado a moderación por un administrador.
+          Publica un nuevo taller en la plataforma. Será enviado a moderación por un administrador.
         </p>
       </div>
 
@@ -134,7 +134,7 @@ const CreateServicePage = () => {
       <form onSubmit={handleSubmit} className="bg-white border border-slate-150 rounded-2xl shadow-xs p-6 space-y-5">
         <div className="space-y-1">
           <label htmlFor="title" className="block text-2xs font-semibold uppercase tracking-wider text-slate-400">
-            Título del Servicio
+            Título del Taller
           </label>
           <input
             type="text"
@@ -144,7 +144,7 @@ const CreateServicePage = () => {
             value={formData.title}
             onChange={handleChange}
             className={`w-full border rounded-xl p-3 text-xs bg-slate-50/50 hover:bg-slate-50 focus:bg-white transition-all outline-none ${
-              validationErrors.title ? 'border-rose-300 focus:border-rose-500 focus:ring-1 focus:ring-rose-500' : 'border-slate-200 focus:border-indigo-500'
+              validationErrors.title ? 'border-rose-300 focus:border-rose-500 focus:ring-1 focus:ring-rose-500' : 'border-slate-200 focus:border-emerald-500'
             }`}
           />
           {validationErrors.title && (
@@ -160,11 +160,11 @@ const CreateServicePage = () => {
             id="description"
             name="description"
             rows="4"
-            placeholder="Describe detalladamente en qué consiste tu servicio, requisitos previos, materiales..."
+            placeholder="Describe detalladamente en qué consiste tu taller, requisitos previos, materiales..."
             value={formData.description}
             onChange={handleChange}
             className={`w-full border rounded-xl p-3 text-xs bg-slate-50/50 hover:bg-slate-50 focus:bg-white transition-all outline-none resize-none ${
-              validationErrors.description ? 'border-rose-300 focus:border-rose-500 focus:ring-1 focus:ring-rose-500' : 'border-slate-200 focus:border-indigo-500'
+              validationErrors.description ? 'border-rose-300 focus:border-rose-500 focus:ring-1 focus:ring-rose-500' : 'border-slate-200 focus:border-emerald-500'
             }`}
           />
           {validationErrors.description && (
@@ -184,7 +184,7 @@ const CreateServicePage = () => {
               value={formData.date}
               onChange={handleChange}
               className={`w-full border rounded-xl p-3 text-xs bg-slate-50/50 hover:bg-slate-50 focus:bg-white transition-all outline-none ${
-                validationErrors.date ? 'border-rose-300 focus:border-rose-500 focus:ring-1 focus:ring-rose-500' : 'border-slate-200 focus:border-indigo-500'
+                validationErrors.date ? 'border-rose-300 focus:border-rose-500 focus:ring-1 focus:ring-rose-500' : 'border-slate-200 focus:border-emerald-500'
               }`}
             />
             {validationErrors.date && (
@@ -203,7 +203,7 @@ const CreateServicePage = () => {
               value={formData.time}
               onChange={handleChange}
               className={`w-full border rounded-xl p-3 text-xs bg-slate-50/50 hover:bg-slate-50 focus:bg-white transition-all outline-none ${
-                validationErrors.time ? 'border-rose-300 focus:border-rose-500 focus:ring-1 focus:ring-rose-500' : 'border-slate-200 focus:border-indigo-500'
+                validationErrors.time ? 'border-rose-300 focus:border-rose-500 focus:ring-1 focus:ring-rose-500' : 'border-slate-200 focus:border-emerald-500'
               }`}
             />
             {validationErrors.time && (
@@ -225,7 +225,7 @@ const CreateServicePage = () => {
               value={formData.duration}
               onChange={handleChange}
               className={`w-full border rounded-xl p-3 text-xs bg-slate-50/50 hover:bg-slate-50 focus:bg-white transition-all outline-none ${
-                validationErrors.duration ? 'border-rose-300 focus:border-rose-500 focus:ring-1 focus:ring-rose-500' : 'border-slate-200 focus:border-indigo-500'
+                validationErrors.duration ? 'border-rose-300 focus:border-rose-500 focus:ring-1 focus:ring-rose-500' : 'border-slate-200 focus:border-emerald-500'
               }`}
             />
             {validationErrors.duration && (
@@ -243,7 +243,7 @@ const CreateServicePage = () => {
               value={formData.modality}
               onChange={handleChange}
               className={`w-full border rounded-xl p-3 text-xs bg-slate-50/50 hover:bg-slate-50 focus:bg-white transition-all outline-none ${
-                validationErrors.modality ? 'border-rose-300 focus:border-rose-500 focus:ring-1 focus:ring-rose-500' : 'border-slate-200 focus:border-indigo-500'
+                validationErrors.modality ? 'border-rose-300 focus:border-rose-500 focus:ring-1 focus:ring-rose-500' : 'border-slate-200 focus:border-emerald-500'
               }`}
             >
               <option value="Presencial">🏢 Presencial</option>
@@ -270,7 +270,7 @@ const CreateServicePage = () => {
               value={formData.price}
               onChange={handleChange}
               className={`w-full border rounded-xl p-3 text-xs bg-slate-50/50 hover:bg-slate-50 focus:bg-white transition-all outline-none ${
-                validationErrors.price ? 'border-rose-300 focus:border-rose-500 focus:ring-1 focus:ring-rose-500' : 'border-slate-200 focus:border-indigo-500'
+                validationErrors.price ? 'border-rose-300 focus:border-rose-500 focus:ring-1 focus:ring-rose-500' : 'border-slate-200 focus:border-emerald-500'
               }`}
             />
             {validationErrors.price && (
@@ -290,7 +290,7 @@ const CreateServicePage = () => {
               value={formData.capacity}
               onChange={handleChange}
               className={`w-full border rounded-xl p-3 text-xs bg-slate-50/50 hover:bg-slate-50 focus:bg-white transition-all outline-none ${
-                validationErrors.capacity ? 'border-rose-300 focus:border-rose-500 focus:ring-1 focus:ring-rose-500' : 'border-slate-200 focus:border-indigo-500'
+                validationErrors.capacity ? 'border-rose-300 focus:border-rose-500 focus:ring-1 focus:ring-rose-500' : 'border-slate-200 focus:border-emerald-500'
               }`}
             />
             {validationErrors.capacity && (
@@ -311,7 +311,7 @@ const CreateServicePage = () => {
             value={formData.location}
             onChange={handleChange}
             className={`w-full border rounded-xl p-3 text-xs bg-slate-50/50 hover:bg-slate-50 focus:bg-white transition-all outline-none ${
-              validationErrors.location ? 'border-rose-300 focus:border-rose-500 focus:ring-1 focus:ring-rose-500' : 'border-slate-200 focus:border-indigo-500'
+              validationErrors.location ? 'border-rose-300 focus:border-rose-500 focus:ring-1 focus:ring-rose-500' : 'border-slate-200 focus:border-emerald-500'
             }`}
           />
           {validationErrors.location && (
@@ -331,7 +331,7 @@ const CreateServicePage = () => {
             value={formData.category}
             onChange={handleChange}
             className={`w-full border rounded-xl p-3 text-xs bg-slate-50/50 hover:bg-slate-50 focus:bg-white transition-all outline-none ${
-              validationErrors.category ? 'border-rose-300 focus:border-rose-500 focus:ring-1 focus:ring-rose-500' : 'border-slate-200 focus:border-indigo-500'
+              validationErrors.category ? 'border-rose-300 focus:border-rose-500 focus:ring-1 focus:ring-rose-500' : 'border-slate-200 focus:border-emerald-500'
             }`}
           />
           {validationErrors.category && (
@@ -349,7 +349,7 @@ const CreateServicePage = () => {
           <button
             type="submit"
             disabled={loading}
-            className="flex-1 inline-flex justify-center items-center px-4 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-semibold shadow-sm transition-all"
+            className="flex-1 inline-flex justify-center items-center px-4 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-semibold shadow-sm transition-all"
           >
             {loading ? 'Publicando...' : '🚀 Publicar taller'}
           </button>

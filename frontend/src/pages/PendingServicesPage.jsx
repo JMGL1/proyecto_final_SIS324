@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import serviceService from '../services/serviceService.js';
 
 /**
- * Vista de administración para moderar y auditar servicios pendientes de aprobación (ADMIN)
+ * Vista de administración para moderar y auditar talleres pendientes de aprobación (ADMIN)
  */
 const PendingServicesPage = () => {
   const [pendingServices, setPendingServices] = useState([]);
@@ -23,7 +23,7 @@ const PendingServicesPage = () => {
       setPendingServices(response.data || []);
     } catch (err) {
       console.error(err);
-      setErrorMsg('No se pudo cargar la lista de servicios pendientes.');
+      setErrorMsg('No se pudo cargar la lista de talleres pendientes.');
     } finally {
       setLoading(false);
     }
@@ -35,12 +35,12 @@ const PendingServicesPage = () => {
     setSuccessMsg('');
     try {
       await serviceService.approveService(id);
-      setSuccessMsg(`El servicio "${title}" ha sido aprobado y ya es visible en la plataforma pública.`);
+      setSuccessMsg(`El taller "${title}" ha sido aprobado y ya es visible en la plataforma pública.`);
       setPendingServices((prev) => prev.filter((s) => s.id !== id));
       setTimeout(() => setSuccessMsg(''), 4500);
     } catch (err) {
       console.error(err);
-      setErrorMsg(err.response?.data?.message || 'No se pudo aprobar el servicio.');
+      setErrorMsg(err.response?.data?.message || 'No se pudo aprobar el taller.');
     } finally {
       setActioningId(null);
     }
@@ -52,12 +52,12 @@ const PendingServicesPage = () => {
     setSuccessMsg('');
     try {
       await serviceService.rejectService(id);
-      setSuccessMsg(`El servicio "${title}" ha sido rechazado correctamente.`);
+      setSuccessMsg(`El taller "${title}" ha sido rechazado correctamente.`);
       setPendingServices((prev) => prev.filter((s) => s.id !== id));
       setTimeout(() => setSuccessMsg(''), 4500);
     } catch (err) {
       console.error(err);
-      setErrorMsg(err.response?.data?.message || 'No se pudo rechazar el servicio.');
+      setErrorMsg(err.response?.data?.message || 'No se pudo rechazar el taller.');
     } finally {
       setActioningId(null);
     }
@@ -67,7 +67,7 @@ const PendingServicesPage = () => {
     <div className="space-y-6">
       {/* Encabezado */}
       <div>
-        <h2 className="text-xl font-bold text-slate-900 md:text-2xl">Moderación de Servicios</h2>
+        <h2 className="text-xl font-bold text-slate-900 md:text-2xl">Moderación de Talleres</h2>
         <p className="text-xs text-slate-500 mt-1">
           Audita y autoriza las nuevas ofertas y modificaciones enviadas por los hosts locales de la comunidad.
         </p>
@@ -95,8 +95,8 @@ const PendingServicesPage = () => {
       {/* Contenido principal */}
       {loading ? (
         <div className="bg-white border border-slate-150 rounded-2xl p-12 text-center shadow-xs">
-          <div className="w-8 h-8 rounded-full border-4 border-indigo-200 border-t-indigo-600 animate-spin mx-auto"></div>
-          <p className="text-xs text-slate-400 mt-3 font-medium">Buscando servicios pendientes...</p>
+          <div className="w-8 h-8 rounded-full border-4 border-emerald-200 border-t-emerald-600 animate-spin mx-auto"></div>
+          <p className="text-xs text-slate-400 mt-3 font-medium">Buscando talleres pendientes...</p>
         </div>
       ) : pendingServices.length === 0 ? (
         <div className="bg-white border border-slate-150 rounded-2xl p-12 text-center space-y-3">
@@ -107,7 +107,7 @@ const PendingServicesPage = () => {
           </div>
           <h3 className="text-sm font-semibold text-slate-700">¡Bandeja vacía!</h3>
           <p className="text-2xs text-slate-400 max-w-xs mx-auto">
-            No existen servicios pendientes de revisión en este momento. Todos los cambios han sido auditados.
+            No existen talleres pendientes de revisión en este momento. Todos los cambios han sido auditados.
           </p>
         </div>
       ) : (
@@ -117,7 +117,7 @@ const PendingServicesPage = () => {
               key={service.id}
               className="bg-white border border-slate-150 rounded-2xl p-5 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-5 hover:border-slate-300 transition-colors"
             >
-              {/* Info del servicio */}
+              {/* Info del taller */}
               <div className="space-y-2 flex-1">
                 <div className="flex flex-wrap items-center gap-2">
                   <span className="bg-amber-50 text-amber-700 border border-amber-100 text-2xs font-semibold px-2 py-0.5 rounded">
@@ -162,7 +162,7 @@ const PendingServicesPage = () => {
                 <button
                   onClick={() => handleApprove(service.id, service.title)}
                   disabled={actioningId !== null}
-                  className="flex-1 md:flex-initial px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-semibold shadow-sm transition-all flex items-center justify-center gap-2"
+                  className="flex-1 md:flex-initial px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-semibold shadow-sm transition-all flex items-center justify-center gap-2"
                 >
                   {actioningId === service.id ? 'Cargando...' : 'Aprobar'}
                 </button>

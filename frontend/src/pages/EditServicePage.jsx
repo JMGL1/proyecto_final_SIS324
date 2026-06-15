@@ -3,7 +3,7 @@ import { useNavigate, useParams, Link, useLocation } from 'react-router-dom';
 import serviceService from '../services/serviceService.js';
 
 /**
- * Página de edición de servicios para HOST
+ * Página de edición de talleres para HOST
  */
 const EditServicePage = () => {
   const { id } = useParams();
@@ -38,19 +38,19 @@ const EditServicePage = () => {
         return;
       }
 
-      // 2. Si no, buscar en la lista de mis servicios del HOST
+      // 2. Si no, buscar en la lista de mis talleres del HOST
       const response = await serviceService.getMyServices();
       const service = response.data.find((s) => s.id === id);
 
       if (!service) {
-        setErrorMsg('El servicio no existe o no tiene permisos para editarlo.');
+        setErrorMsg('El taller no existe o no tiene permisos para editarlo.');
       } else {
         const { title, description, price, category } = service;
         setFormData({ title, description, price: price.toString(), category });
       }
     } catch (err) {
       console.error(err);
-      setErrorMsg('No se pudo cargar la información del servicio.');
+      setErrorMsg('No se pudo cargar la información del taller.');
     } finally {
       setLoading(false);
     }
@@ -110,7 +110,7 @@ const EditServicePage = () => {
         });
         setValidationErrors(errorsMap);
       } else {
-        setErrorMsg(err.response?.data?.message || 'Hubo un error al actualizar el servicio.');
+        setErrorMsg(err.response?.data?.message || 'Hubo un error al actualizar el taller.');
       }
     } finally {
       setSaving(false);
@@ -128,11 +128,11 @@ const EditServicePage = () => {
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
           </svg>
-          Volver a Mis Servicios
+          Volver a Mis Talleres
         </Link>
-        <h2 className="text-xl font-bold text-slate-900 md:text-2xl">Editar Servicio</h2>
+        <h2 className="text-xl font-bold text-slate-900 md:text-2xl">Editar Taller</h2>
         <p className="text-xs text-slate-500">
-          Edita la información de tu oferta. Al guardar los cambios, el servicio volverá a estado <span className="font-semibold text-amber-600">Pendiente</span> para revisión.
+          Edita la información de tu oferta. Al guardar los cambios, el taller volverá a estado <span className="font-semibold text-amber-600">Pendiente</span> para revisión.
         </p>
       </div>
 
@@ -148,14 +148,14 @@ const EditServicePage = () => {
 
       {loading ? (
         <div className="bg-white border border-slate-150 rounded-2xl p-12 text-center shadow-xs">
-          <div className="w-8 h-8 rounded-full border-4 border-indigo-200 border-t-indigo-600 animate-spin mx-auto"></div>
-          <p className="text-xs text-slate-400 mt-3 font-medium">Cargando datos del servicio...</p>
+          <div className="w-8 h-8 rounded-full border-4 border-emerald-200 border-t-emerald-600 animate-spin mx-auto"></div>
+          <p className="text-xs text-slate-400 mt-3 font-medium">Cargando datos del taller...</p>
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="bg-white border border-slate-150 rounded-2xl shadow-xs p-6 space-y-5">
           <div className="space-y-1">
             <label htmlFor="title" className="block text-2xs font-semibold uppercase tracking-wider text-slate-400">
-              Título del Servicio
+              Título del Taller
             </label>
             <input
               type="text"
@@ -164,7 +164,7 @@ const EditServicePage = () => {
               value={formData.title}
               onChange={handleChange}
               className={`w-full border rounded-xl p-3 text-xs bg-slate-50/50 hover:bg-slate-50 focus:bg-white transition-all outline-none ${
-                validationErrors.title ? 'border-rose-300 focus:border-rose-500 focus:ring-1 focus:ring-rose-500' : 'border-slate-200 focus:border-indigo-500'
+                validationErrors.title ? 'border-rose-300 focus:border-rose-500 focus:ring-1 focus:ring-rose-500' : 'border-slate-200 focus:border-emerald-500'
               }`}
             />
             {validationErrors.title && (
@@ -184,7 +184,7 @@ const EditServicePage = () => {
                 value={formData.category}
                 onChange={handleChange}
                 className={`w-full border rounded-xl p-3 text-xs bg-slate-50/50 hover:bg-slate-50 focus:bg-white transition-all outline-none ${
-                  validationErrors.category ? 'border-rose-300 focus:border-rose-500 focus:ring-1 focus:ring-rose-500' : 'border-slate-200 focus:border-indigo-500'
+                  validationErrors.category ? 'border-rose-300 focus:border-rose-500 focus:ring-1 focus:ring-rose-500' : 'border-slate-200 focus:border-emerald-500'
                 }`}
               />
               {validationErrors.category && (
@@ -204,7 +204,7 @@ const EditServicePage = () => {
                 value={formData.price}
                 onChange={handleChange}
                 className={`w-full border rounded-xl p-3 text-xs bg-slate-50/50 hover:bg-slate-50 focus:bg-white transition-all outline-none ${
-                  validationErrors.price ? 'border-rose-300 focus:border-rose-500 focus:ring-1 focus:ring-rose-500' : 'border-slate-200 focus:border-indigo-500'
+                  validationErrors.price ? 'border-rose-300 focus:border-rose-500 focus:ring-1 focus:ring-rose-500' : 'border-slate-200 focus:border-emerald-500'
                 }`}
               />
               {validationErrors.price && (
@@ -224,7 +224,7 @@ const EditServicePage = () => {
               value={formData.description}
               onChange={handleChange}
               className={`w-full border rounded-xl p-3 text-xs bg-slate-50/50 hover:bg-slate-50 focus:bg-white transition-all outline-none resize-none ${
-                validationErrors.description ? 'border-rose-300 focus:border-rose-500 focus:ring-1 focus:ring-rose-500' : 'border-slate-200 focus:border-indigo-500'
+                validationErrors.description ? 'border-rose-300 focus:border-rose-500 focus:ring-1 focus:ring-rose-500' : 'border-slate-200 focus:border-emerald-500'
               }`}
             />
             {validationErrors.description && (
@@ -242,7 +242,7 @@ const EditServicePage = () => {
             <button
               type="submit"
               disabled={saving}
-              className="flex-1 inline-flex justify-center items-center px-4 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-semibold shadow-sm transition-all"
+              className="flex-1 inline-flex justify-center items-center px-4 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-semibold shadow-sm transition-all"
             >
               {saving ? 'Guardando...' : 'Guardar Cambios'}
             </button>

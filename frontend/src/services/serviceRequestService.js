@@ -1,7 +1,7 @@
 import api from './api.js';
 
 /**
- * Crear una nueva solicitud de servicio (USER)
+ * Crear una nueva inscripción de taller (USER)
  * @param {Object} requestData - { serviceId, message, contactPhone, desiredDate }
  */
 const createRequest = async (requestData) => {
@@ -10,7 +10,7 @@ const createRequest = async (requestData) => {
 };
 
 /**
- * Obtener solicitudes de servicios recibidas por el HOST autenticado
+ * Obtener inscripciónes de talleres recibidas por el HOST autenticado
  */
 const getMyServiceRequests = async () => {
   const response = await api.get('/api/service-requests/my-services');
@@ -18,8 +18,8 @@ const getMyServiceRequests = async () => {
 };
 
 /**
- * Aceptar una solicitud de servicio (HOST)
- * @param {string} id - UUID de la solicitud
+ * Aceptar una inscripción de taller (HOST)
+ * @param {string} id - UUID de la inscripción
  */
 const acceptRequest = async (id) => {
   const response = await api.patch(`/api/service-requests/${id}/accept`);
@@ -27,8 +27,8 @@ const acceptRequest = async (id) => {
 };
 
 /**
- * Rechazar una solicitud de servicio (HOST)
- * @param {string} id - UUID de la solicitud
+ * Rechazar una inscripción de taller (HOST)
+ * @param {string} id - UUID de la inscripción
  */
 const rejectRequest = async (id) => {
   const response = await api.patch(`/api/service-requests/${id}/reject`);
@@ -36,7 +36,7 @@ const rejectRequest = async (id) => {
 };
 
 /**
- * Obtener solicitudes realizadas por el USER autenticado
+ * Obtener inscripciónes realizadas por el USER autenticado
  */
 const getMyRequests = async () => {
   const response = await api.get('/api/service-requests/my-requests');

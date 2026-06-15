@@ -28,7 +28,7 @@ const formatDate = (iso) =>
 
 const RoleBadgeLarge = ({ role }) => {
   const v = {
-    ADMIN: 'bg-indigo-100 text-indigo-700 border-indigo-200',
+    ADMIN: 'bg-emerald-100 text-emerald-700 border-emerald-200',
     HOST:  'bg-emerald-100 text-emerald-700 border-emerald-200',
     USER:  'bg-slate-100 text-slate-600 border-slate-200',
   };
@@ -59,19 +59,19 @@ const ActionCard = ({ title, desc, href, icon, gradient }) => (
   <Link
     to={href}
     className="group relative bg-white rounded-2xl border border-slate-100 shadow-premium overflow-hidden
-      hover:shadow-premium-hover hover:border-indigo-100 hover:-translate-y-0.5 transition-all duration-200 p-5 flex flex-col gap-3"
+      hover:shadow-premium-hover hover:border-emerald-100 hover:-translate-y-0.5 transition-all duration-200 p-5 flex flex-col gap-3"
   >
     <div className={`absolute top-0 inset-x-0 h-1 ${gradient} rounded-t-2xl`} />
     <div className={`w-10 h-10 rounded-xl ${gradient} bg-opacity-10 flex items-center justify-center text-white shadow-sm`}>
       {icon}
     </div>
     <div>
-      <h4 className="text-sm font-bold text-slate-800 group-hover:text-indigo-700 transition-colors">
+      <h4 className="text-sm font-bold text-slate-800 group-hover:text-emerald-700 transition-colors">
         {title}
       </h4>
       <p className="text-xs text-slate-500 mt-1 leading-relaxed">{desc}</p>
     </div>
-    <div className="flex items-center gap-1 text-xs font-semibold text-indigo-600 mt-auto">
+    <div className="flex items-center gap-1 text-xs font-semibold text-emerald-600 mt-auto">
       Ir ahora
       <svg className="w-3.5 h-3.5 transform group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
@@ -83,9 +83,9 @@ const ActionCard = ({ title, desc, href, icon, gradient }) => (
 /* ── Hero Banner ── */
 const HeroBanner = ({ user, subtitle }) => {
   const roleGradient = {
-    ADMIN: 'from-indigo-600 via-indigo-700 to-[#3730a3]',
+    ADMIN: 'from-emerald-600 via-emerald-700 to-[#3730a3]',
     HOST:  'from-emerald-600 via-emerald-700 to-[#065f46]',
-    USER:  'from-indigo-500 via-indigo-600 to-indigo-700',
+    USER:  'from-emerald-500 via-emerald-600 to-emerald-700',
   };
   const grad = roleGradient[user?.rol] || roleGradient.USER;
   return (
@@ -181,9 +181,9 @@ const DashboardPage = () => {
       <HeroBanner
         user={user}
         subtitle={
-          user.rol === 'ADMIN' ? 'Tienes control total del sistema. Gestiona usuarios, modera servicios y supervisa toda la actividad de la plataforma.'
-          : user.rol === 'HOST' ? 'Publica tus servicios, gestiona solicitudes y construye tu reputación en la plataforma TallerioCapital.'
-          : 'Explora servicios publicados por proveedores verificados, envía solicitudes y lleva el seguimiento de tu historial.'
+          user.rol === 'ADMIN' ? 'Tienes control total del sistema. Gestiona usuarios, modera talleres y supervisa toda la actividad de la plataforma.'
+          : user.rol === 'HOST' ? 'Publica tus talleres, gestiona inscripciónes y construye tu reputación en la plataforma TallerioCapital.'
+          : 'Explora talleres publicados por proveedores verificados, envía inscripciónes y lleva el seguimiento de tu historial.'
         }
       />
 
@@ -204,26 +204,26 @@ const DashboardPage = () => {
                 <StatCard
                   label="Total Usuarios"
                   value={stats.stats.totalUsers}
-                  color="indigo"
+                  color="emerald"
                   sub="Usuarios registrados"
                   icon={<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>}
                 />
                 <StatCard
-                  label="Total Servicios"
+                  label="Total Talleres"
                   value={stats.stats.totalServices}
                   color="emerald"
                   sub={`Aprobados: ${stats.stats.approvedServices} | Pendientes: ${stats.stats.pendingServices}`}
                   icon={<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>}
                 />
                 <StatCard
-                  label="Servicios Pendientes"
+                  label="Talleres Pendientes"
                   value={stats.stats.pendingServices}
                   color="amber"
                   sub="Requieren moderación"
                   icon={<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>}
                 />
                 <StatCard
-                  label="Total Solicitudes"
+                  label="Total Inscripciones"
                   value={stats.stats.totalRequests}
                   color="slate"
                   sub={`Aceptadas: ${stats.stats.acceptedRequests} | Pendientes: ${stats.stats.pendingRequests}`}
@@ -235,23 +235,23 @@ const DashboardPage = () => {
             {user.rol === 'HOST' && stats && (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <StatCard
-                  label="Mis Servicios"
+                  label="Mis Talleres"
                   value={stats.stats.totalServices}
                   color="emerald"
                   sub={`Aprobados: ${stats.stats.approvedServices}`}
                   icon={<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>}
                 />
                 <StatCard
-                  label="Servicios Pendientes"
+                  label="Talleres Pendientes"
                   value={stats.stats.pendingServices}
                   color="amber"
                   sub="En espera de aprobación"
                   icon={<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>}
                 />
                 <StatCard
-                  label="Solicitudes Recibidas"
+                  label="Inscripciones Recibidas"
                   value={stats.stats.totalRequestsReceived}
-                  color="indigo"
+                  color="emerald"
                   sub="Interés de clientes"
                   icon={<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>}
                 />
@@ -268,14 +268,14 @@ const DashboardPage = () => {
             {user.rol === 'USER' && stats && (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <StatCard
-                  label="Solicitudes Realizadas"
+                  label="Inscripciones Realizadas"
                   value={stats.stats.totalRequests}
-                  color="indigo"
+                  color="emerald"
                   sub="Total contrataciones enviadas"
                   icon={<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>}
                 />
                 <StatCard
-                  label="Solicitudes Aceptadas"
+                  label="Inscripciones Aceptadas"
                   value={stats.stats.acceptedRequests}
                   color="emerald"
                   sub="Listas para coordinar"
@@ -289,10 +289,10 @@ const DashboardPage = () => {
                   icon={<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>}
                 />
                 <StatCard
-                  label="Servicios Disponibles"
+                  label="Talleres Disponibles"
                   value={stats.stats.totalServicesAvailable}
                   color="slate"
-                  sub="Servicios aprobados en TallerioCapital"
+                  sub="Talleres aprobados en TallerioCapital"
                   icon={<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>}
                 />
               </div>
@@ -313,8 +313,8 @@ const DashboardPage = () => {
           <>
             {user.rol === 'ADMIN' && stats && (
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
-                {/* Chart 1: Servicios por estado */}
-                <ChartCard title="Servicios por Estado" subtitle="Distribución total de la oferta">
+                {/* Chart 1: Talleres por estado */}
+                <ChartCard title="Talleres por Estado" subtitle="Distribución total de la oferta">
                   <ResponsiveContainer width="100%" height={220}>
                     <BarChart data={stats.charts.servicesByStatus} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                       <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#F1F5F9" />
@@ -359,8 +359,8 @@ const DashboardPage = () => {
                   </ResponsiveContainer>
                 </ChartCard>
 
-                {/* Chart 3: Solicitudes por estado */}
-                <ChartCard title="Solicitudes por Estado" subtitle="Procesamiento general de solicitudes">
+                {/* Chart 3: Inscripciones por estado */}
+                <ChartCard title="Inscripciones por Estado" subtitle="Procesamiento general de inscripciónes">
                   <ResponsiveContainer width="100%" height={220}>
                     <BarChart data={stats.charts.requestsByStatus} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                       <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#F1F5F9" />
@@ -381,12 +381,12 @@ const DashboardPage = () => {
 
             {user.rol === 'HOST' && stats && (
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-                {/* Chart 1: Solicitudes recibidas por estado */}
-                <ChartCard title="Solicitudes Recibidas" subtitle="Estado de solicitudes dirigidas a ti">
+                {/* Chart 1: Inscripciones recibidas por estado */}
+                <ChartCard title="Inscripciones Recibidas" subtitle="Estado de inscripciónes dirigidas a ti">
                   {stats.stats.totalRequestsReceived === 0 ? (
                     <EmptyState
-                      title="Sin solicitudes recibidas"
-                      description="Aún no has recibido solicitudes para tus servicios publicados."
+                      title="Sin inscripciónes recibidas"
+                      description="Aún no has recibido inscripciónes para tus talleres publicados."
                     />
                   ) : (
                     <ResponsiveContainer width="100%" height={220}>
@@ -406,12 +406,12 @@ const DashboardPage = () => {
                   )}
                 </ChartCard>
 
-                {/* Chart 2: Servicios publicados por estado */}
-                <ChartCard title="Tus Servicios publicados" subtitle="Estado de tus publicaciones de servicio">
+                {/* Chart 2: Talleres publicados por estado */}
+                <ChartCard title="Tus Talleres publicados" subtitle="Estado de tus publicaciones de taller">
                   {stats.stats.totalServices === 0 ? (
                     <EmptyState
-                      title="Sin servicios publicados"
-                      description="Crea tu primer servicio para empezar a recibir clientes."
+                      title="Sin talleres publicados"
+                      description="Crea tu primer taller para empezar a recibir clientes."
                     />
                   ) : (
                     <ResponsiveContainer width="100%" height={220}>
@@ -435,12 +435,12 @@ const DashboardPage = () => {
 
             {user.rol === 'USER' && stats && (
               <div className="grid grid-cols-1 gap-5">
-                {/* Chart 1: Solicitudes por estado */}
-                <ChartCard title="Estado de Mis Solicitudes" subtitle="Seguimiento de tus contrataciones">
+                {/* Chart 1: Inscripciones por estado */}
+                <ChartCard title="Estado de Mis Inscripciones" subtitle="Seguimiento de tus contrataciones">
                   {stats.stats.totalRequests === 0 ? (
                     <EmptyState
-                      title="Sin solicitudes realizadas"
-                      description="Explora la plataforma y envía solicitudes para ver las métricas."
+                      title="Sin inscripciónes realizadas"
+                      description="Explora la plataforma y envía inscripciónes para ver las métricas."
                     />
                   ) : (
                     <ResponsiveContainer width="100%" height={220}>
@@ -477,12 +477,12 @@ const DashboardPage = () => {
                   title="Gestionar Usuarios"
                   desc="Visualiza, crea, edita o elimina cuentas del sistema."
                   href="/users"
-                  gradient="bg-gradient-to-br from-indigo-500 to-indigo-700"
+                  gradient="bg-gradient-to-br from-emerald-500 to-emerald-700"
                   icon={<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>}
                 />
                 <ActionCard
-                  title="Moderar Servicios"
-                  desc="Revisa y aprueba o rechaza los servicios pendientes de publicación."
+                  title="Moderar Talleres"
+                  desc="Revisa y aprueba o rechaza los talleres pendientes de publicación."
                   href="/services/pending"
                   gradient="bg-gradient-to-br from-amber-500 to-amber-600"
                   icon={<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>}
@@ -493,21 +493,21 @@ const DashboardPage = () => {
             {user.rol === 'HOST' && (
               <>
                 <ActionCard
-                  title="Mis Servicios"
-                  desc="Administra tus ofertas de servicio: crea nuevas, edita o elimina."
+                  title="Mis Talleres"
+                  desc="Administra tus ofertas de taller: crea nuevas, edita o elimina."
                   href="/services"
                   gradient="bg-gradient-to-br from-emerald-500 to-emerald-600"
                   icon={<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>}
                 />
                 <ActionCard
-                  title="Solicitudes Recibidas"
-                  desc="Revisa las solicitudes de clientes interesados en tus servicios."
+                  title="Inscripciones Recibidas"
+                  desc="Revisa las inscripciónes de clientes interesados en tus talleres."
                   href="/service-requests"
-                  gradient="bg-gradient-to-br from-indigo-500 to-indigo-600"
+                  gradient="bg-gradient-to-br from-emerald-500 to-emerald-600"
                   icon={<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>}
                 />
                 <ActionCard
-                  title="Crear Nuevo Servicio"
+                  title="Crear Nuevo Taller"
                   desc="Añade una nueva oferta a la plataforma de inmediato."
                   href="/services/create"
                   gradient="bg-gradient-to-br from-amber-500 to-amber-600"
@@ -519,15 +519,15 @@ const DashboardPage = () => {
             {user.rol === 'USER' && (
               <>
                 <ActionCard
-                  title="Explorar Servicios"
-                  desc="Busca y filtra servicios aprobados de proveedores verificados."
+                  title="Explorar Talleres"
+                  desc="Busca y filtra talleres aprobados de proveedores verificados."
                   href="/services/explore"
-                  gradient="bg-gradient-to-br from-indigo-500 to-indigo-700"
+                  gradient="bg-gradient-to-br from-emerald-500 to-emerald-700"
                   icon={<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>}
                 />
                 <ActionCard
-                  title="Mis Solicitudes"
-                  desc="Consulta el estado de todas las solicitudes enviadas a proveedores."
+                  title="Mis Inscripciones"
+                  desc="Consulta el estado de todas las inscripciónes enviadas a proveedores."
                   href="/my-requests"
                   gradient="bg-gradient-to-br from-emerald-500 to-emerald-600"
                   icon={<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>}
@@ -543,7 +543,7 @@ const DashboardPage = () => {
             <div className="bg-white rounded-2xl border border-slate-100 shadow-premium p-5 h-full flex flex-col">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-sm font-bold text-slate-800">Últimos Registros</h3>
-                <Link to="/users" className="text-xs text-indigo-600 hover:text-indigo-700 font-semibold flex items-center gap-1 transition-colors">
+                <Link to="/users" className="text-xs text-emerald-600 hover:text-emerald-700 font-semibold flex items-center gap-1 transition-colors">
                   Ver todos
                   <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
@@ -586,10 +586,10 @@ const DashboardPage = () => {
               <ol className="space-y-4">
                 {user.rol === 'HOST' ? (
                   [
-                    { n: '01', title: 'Publica tu servicio', desc: 'Crea una oferta con título, descripción, precio y categoría.', color: 'text-indigo-600 bg-indigo-50 border-indigo-100' },
-                    { n: '02', title: 'Espera la aprobación', desc: 'Un administrador revisará y aprobará tu servicio antes de publicarlo.', color: 'text-amber-600 bg-amber-50 border-amber-100' },
-                    { n: '03', title: 'Recibe solicitudes', desc: 'Clientes interesados te enviarán solicitudes con fecha y mensaje.', color: 'text-emerald-600 bg-emerald-50 border-emerald-100' },
-                    { n: '04', title: 'Acepta o rechaza', desc: 'Tú decides qué solicitudes aceptar según tu disponibilidad.', color: 'text-slate-600 bg-slate-50 border-slate-200' },
+                    { n: '01', title: 'Publica tu taller', desc: 'Crea una oferta con título, descripción, precio y categoría.', color: 'text-emerald-600 bg-emerald-50 border-emerald-100' },
+                    { n: '02', title: 'Espera la aprobación', desc: 'Un administrador revisará y aprobará tu taller antes de publicarlo.', color: 'text-amber-600 bg-amber-50 border-amber-100' },
+                    { n: '03', title: 'Recibe inscripciónes', desc: 'Clientes interesados te enviarán inscripciónes con fecha y mensaje.', color: 'text-emerald-600 bg-emerald-50 border-emerald-100' },
+                    { n: '04', title: 'Acepta o rechaza', desc: 'Tú decides qué inscripciónes aceptar según tu disponibilidad.', color: 'text-slate-600 bg-slate-50 border-slate-200' },
                   ].map(({ n, title, desc, color }) => (
                     <li key={n} className="flex items-start gap-4">
                       <span className={`flex-shrink-0 w-8 h-8 rounded-xl border text-xs font-bold flex items-center justify-center ${color}`}>{n}</span>
@@ -601,10 +601,10 @@ const DashboardPage = () => {
                   ))
                 ) : (
                   [
-                    { n: '01', title: 'Explora servicios', desc: 'Busca por texto, filtra por categoría y ordena a tu gusto.', color: 'text-indigo-600 bg-indigo-50 border-indigo-100' },
-                    { n: '02', title: 'Envía una solicitud', desc: 'Contacta al proveedor indicando fecha deseada, mensaje y teléfono.', color: 'text-emerald-600 bg-emerald-50 border-emerald-100' },
-                    { n: '03', title: 'Espera la respuesta', desc: 'El proveedor revisará tu solicitud y la aceptará o rechazará.', color: 'text-amber-600 bg-amber-50 border-amber-100' },
-                    { n: '04', title: 'Consulta tu historial', desc: 'En "Mis Solicitudes" puedes ver el estado en tiempo real.', color: 'text-slate-600 bg-slate-50 border-slate-200' },
+                    { n: '01', title: 'Explora talleres', desc: 'Busca por texto, filtra por categoría y ordena a tu gusto.', color: 'text-emerald-600 bg-emerald-50 border-emerald-100' },
+                    { n: '02', title: 'Envía una inscripción', desc: 'Contacta al proveedor indicando fecha deseada, mensaje y teléfono.', color: 'text-emerald-600 bg-emerald-50 border-emerald-100' },
+                    { n: '03', title: 'Espera la respuesta', desc: 'El proveedor revisará tu inscripción y la aceptará o rechazará.', color: 'text-amber-600 bg-amber-50 border-amber-100' },
+                    { n: '04', title: 'Consulta tu historial', desc: 'En "Mis Inscripciones" puedes ver el estado en tiempo real.', color: 'text-slate-600 bg-slate-50 border-slate-200' },
                   ].map(({ n, title, desc, color }) => (
                     <li key={n} className="flex items-start gap-4">
                       <span className={`flex-shrink-0 w-8 h-8 rounded-xl border text-xs font-bold flex items-center justify-center ${color}`}>{n}</span>

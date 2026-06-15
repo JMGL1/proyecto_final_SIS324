@@ -9,7 +9,7 @@ export const getMyConversations = async () => {
 };
 
 /**
- * Abrir (o crear) la conversación de una solicitud ACCEPTED
+ * Abrir (o crear) la conversación de una inscripción ACCEPTED
  */
 export const openConversationFromRequest = async (requestId) => {
   const { data } = await api.post(`/api/conversations/from-request/${requestId}`);

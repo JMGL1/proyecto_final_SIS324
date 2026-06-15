@@ -83,14 +83,14 @@ const CategoryBadge = ({ cat }) => (
   </span>
 );
 
-/* Tarjeta de servicio premium */
+/* Tarjeta de taller premium */
 const ServiceCard = ({ service, isOwner, onRequestClick }) => {
   const initials = `${service.owner?.nombre?.[0] || 'T'}${service.owner?.apellido?.[0] || 'L'}`;
   const hostName = service.owner ? `${service.owner.nombre} ${service.owner.apellido}` : 'Talento Local';
 
   return (
     <div className="group bg-white rounded-2xl border border-slate-100 shadow-premium flex flex-col
-      hover:shadow-premium-hover hover:border-indigo-150 hover:-translate-y-0.5 transition-all duration-200 overflow-hidden">
+      hover:shadow-premium-hover hover:border-emerald-150 hover:-translate-y-0.5 transition-all duration-200 overflow-hidden">
 
       {/* Imagen Superior por Categoría */}
       <div className="relative h-44 w-full bg-slate-50 overflow-hidden">
@@ -115,12 +115,12 @@ const ServiceCard = ({ service, isOwner, onRequestClick }) => {
       <div className="p-5 flex flex-col flex-1 gap-3">
         {/* Título + Precio */}
         <div className="flex items-start justify-between gap-4">
-          <h3 className="font-bold text-slate-800 text-sm leading-snug group-hover:text-indigo-700 transition-colors line-clamp-2 flex-1">
+          <h3 className="font-bold text-slate-800 text-sm leading-snug group-hover:text-emerald-700 transition-colors line-clamp-2 flex-1">
             {service.title}
           </h3>
           <div className="text-right flex-shrink-0">
             <span className="text-3xs font-bold text-slate-400 uppercase tracking-wider block">precio</span>
-            <span className="text-base font-extrabold text-indigo-600 font-display block leading-none mt-0.5">
+            <span className="text-base font-extrabold text-emerald-600 font-display block leading-none mt-0.5">
               ${service.price.toFixed(2)}
             </span>
           </div>
@@ -135,7 +135,7 @@ const ServiceCard = ({ service, isOwner, onRequestClick }) => {
         <div className="flex items-center justify-between pt-3 border-t border-slate-50 gap-3">
           {/* Host avatar + info */}
           <div className="flex items-center gap-2 min-w-0">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-400 to-indigo-600 text-white flex items-center justify-center font-bold text-xs flex-shrink-0 shadow-sm">
+            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-600 text-white flex items-center justify-center font-bold text-xs flex-shrink-0 shadow-sm">
               {initials}
             </div>
             <div className="min-w-0">
@@ -169,12 +169,12 @@ const ServiceCard = ({ service, isOwner, onRequestClick }) => {
           {/* Botón de acción */}
           {isOwner ? (
             <span className="flex-shrink-0 text-2xs text-slate-400 bg-slate-50 border border-slate-105 px-2.5 py-1.5 rounded-xl font-semibold italic">
-              Tu servicio
+              Tu taller
             </span>
           ) : (
             <button
               onClick={() => onRequestClick(service)}
-              className="flex-shrink-0 inline-flex items-center gap-1.5 px-3.5 py-2 bg-indigo-600 hover:bg-indigo-700
+              className="flex-shrink-0 inline-flex items-center gap-1.5 px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700
                 text-white text-2xs font-bold rounded-xl shadow-sm hover:shadow active:scale-95 transition-all"
             >
               <Icon d="M12 6v6m0 0v6m0-6h6m-6 0H6" size="w-3 h-3" stroke={2.5} />
@@ -253,7 +253,7 @@ const PublicServicesPage = () => {
     <div className="space-y-6 animate-fadeIn">
 
       {/* ── Hero de sección ── */}
-      <div className="relative overflow-hidden bg-gradient-to-br from-indigo-600 via-indigo-700 to-[#3730a3] rounded-2xl p-6 md:p-8 text-white">
+      <div className="relative overflow-hidden bg-gradient-to-br from-emerald-600 via-emerald-700 to-[#3730a3] rounded-2xl p-6 md:p-8 text-white">
         {/* Decoraciones */}
         <div className="absolute -top-8 -right-8 w-40 h-40 bg-white/5 rounded-full blur-2xl" />
         <div className="absolute bottom-0 left-1/4 w-24 h-24 bg-white/5 rounded-full blur-xl" />
@@ -265,10 +265,10 @@ const PublicServicesPage = () => {
           <div>
             <div className="inline-flex items-center gap-2 bg-white/15 border border-white/20 px-3 py-1 rounded-full mb-3">
               <Icon d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" size="w-3 h-3" stroke={2.5} />
-              <span className="text-2xs font-bold uppercase tracking-widest text-white/90">Catálogo de Servicios</span>
+              <span className="text-2xs font-bold uppercase tracking-widest text-white/90">Catálogo de Talleres</span>
             </div>
             <h2 className="text-xl md:text-2xl font-display font-extrabold leading-tight">
-              Explorar Servicios
+              Explorar Talleres
             </h2>
             <p className="mt-1.5 text-sm text-white/70 max-w-md">
               Encuentra los mejores profesionales y talentos locales aprobados en tu comunidad.
@@ -277,7 +277,7 @@ const PublicServicesPage = () => {
           {totalCount > 0 && !loading && (
             <div className="bg-white/15 backdrop-blur-sm border border-white/20 rounded-2xl px-5 py-3 text-center flex-shrink-0">
               <p className="text-2xl font-display font-extrabold leading-none">{totalCount}</p>
-              <p className="text-2xs text-white/70 mt-1 font-medium">servicios disponibles</p>
+              <p className="text-2xs text-white/70 mt-1 font-medium">talleres disponibles</p>
             </div>
           )}
         </div>
@@ -297,8 +297,8 @@ const PublicServicesPage = () => {
 
           {/* Buscador */}
           <label className="md:col-span-6 flex items-center gap-2.5 border border-slate-200 rounded-xl px-3.5 py-2.5
-            bg-slate-50/50 hover:bg-white hover:border-slate-300 focus-within:bg-white focus-within:border-indigo-500
-            focus-within:ring-3 focus-within:ring-indigo-50 transition-all cursor-text">
+            bg-slate-50/50 hover:bg-white hover:border-slate-300 focus-within:bg-white focus-within:border-emerald-500
+            focus-within:ring-3 focus-within:ring-emerald-50 transition-all cursor-text">
             <Icon d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" size="w-4 h-4 text-slate-400 flex-shrink-0" />
             <input
               type="text"
@@ -320,7 +320,7 @@ const PublicServicesPage = () => {
               value={category}
               onChange={(e) => setCategory(e.target.value)}
               className="w-full appearance-none border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm
-                bg-slate-50/50 text-slate-700 focus:border-indigo-500 focus:ring-3 focus:ring-indigo-50 outline-none
+                bg-slate-50/50 text-slate-700 focus:border-emerald-500 focus:ring-3 focus:ring-emerald-50 outline-none
                 hover:border-slate-300 transition-all cursor-pointer"
             >
               {categories.map((cat) => (
@@ -338,7 +338,7 @@ const PublicServicesPage = () => {
               value={sort}
               onChange={(e) => setSort(e.target.value)}
               className="w-full appearance-none border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm
-                bg-slate-50/50 text-slate-700 focus:border-indigo-500 focus:ring-3 focus:ring-indigo-50 outline-none
+                bg-slate-50/50 text-slate-700 focus:border-emerald-500 focus:ring-3 focus:ring-emerald-50 outline-none
                 hover:border-slate-300 transition-all cursor-pointer"
             >
               <option value="recent">Más recientes</option>
@@ -356,15 +356,15 @@ const PublicServicesPage = () => {
           <div className="flex items-center gap-2 mt-3 pt-3 border-t border-slate-50">
             <span className="text-2xs text-slate-400 font-medium">Filtros activos:</span>
             {search && (
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-indigo-50 text-indigo-700 border border-indigo-100 rounded-full text-2xs font-semibold">
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-emerald-50 text-emerald-700 border border-emerald-100 rounded-full text-2xs font-semibold">
                 "{search}"
-                <button onClick={() => setSearch('')} className="hover:text-indigo-900">×</button>
+                <button onClick={() => setSearch('')} className="hover:text-emerald-900">×</button>
               </span>
             )}
             {category !== 'Todas' && (
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-indigo-50 text-indigo-700 border border-indigo-100 rounded-full text-2xs font-semibold">
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-emerald-50 text-emerald-700 border border-emerald-100 rounded-full text-2xs font-semibold">
                 {category}
-                <button onClick={() => setCategory('Todas')} className="hover:text-indigo-900">×</button>
+                <button onClick={() => setCategory('Todas')} className="hover:text-emerald-900">×</button>
               </span>
             )}
           </div>
@@ -380,19 +380,19 @@ const PublicServicesPage = () => {
       ) : services.length === 0 ? (
         /* Estado vacío */
         <div className="bg-white border border-slate-100 rounded-2xl p-14 text-center shadow-premium space-y-4">
-          <div className="w-16 h-16 bg-indigo-50 text-indigo-300 rounded-2xl flex items-center justify-center mx-auto border border-indigo-100">
+          <div className="w-16 h-16 bg-emerald-50 text-emerald-300 rounded-2xl flex items-center justify-center mx-auto border border-emerald-100">
             <Icon d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" size="w-8 h-8" stroke={1.4} />
           </div>
           <div>
             <h3 className="text-sm font-bold text-slate-700">Sin resultados</h3>
             <p className="text-xs text-slate-400 max-w-sm mx-auto mt-1 leading-relaxed">
-              No se encontraron servicios con los filtros actuales. Intenta ampliar tu búsqueda o cambiar la categoría.
+              No se encontraron talleres con los filtros actuales. Intenta ampliar tu búsqueda o cambiar la categoría.
             </p>
           </div>
           {(search || category !== 'Todas') && (
             <button
               onClick={() => { setSearch(''); setCategory('Todas'); }}
-              className="inline-flex items-center gap-2 px-4 py-2 border border-indigo-200 text-indigo-600 rounded-xl text-xs font-semibold hover:bg-indigo-50 transition-all"
+              className="inline-flex items-center gap-2 px-4 py-2 border border-emerald-200 text-emerald-600 rounded-xl text-xs font-semibold hover:bg-emerald-50 transition-all"
             >
               Limpiar filtros
             </button>
@@ -443,7 +443,7 @@ const PublicServicesPage = () => {
         </div>
       )}
 
-      {/* Modal de Solicitud — sin cambios funcionales */}
+      {/* Modal de Inscripción — sin cambios funcionales */}
       {isModalOpen && selectedService && (
         <RequestServiceModal
           service={selectedService}

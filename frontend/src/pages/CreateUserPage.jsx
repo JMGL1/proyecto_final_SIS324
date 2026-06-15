@@ -89,7 +89,7 @@ const CreateUserPage = () => {
       <div className="space-y-3">
         <Link
           to="/users"
-          className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-indigo-600 transition-colors"
+          className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-emerald-600 transition-colors"
         >
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -139,7 +139,7 @@ const CreateUserPage = () => {
                 }}
                 disabled={isSubmitting}
                 className={`w-full px-4 py-2.5 bg-slate-50 border rounded-xl text-sm focus:outline-none focus:ring-2 focus:bg-white transition-all ${
-                  validationErrors.nombre ? 'border-rose-300 focus:ring-rose-100 text-rose-900' : 'border-slate-200 focus:border-indigo-500 focus:ring-indigo-100'
+                  validationErrors.nombre ? 'border-rose-300 focus:ring-rose-100 text-rose-900' : 'border-slate-200 focus:border-emerald-500 focus:ring-emerald-100'
                 }`}
               />
               {validationErrors.nombre && (
@@ -161,7 +161,7 @@ const CreateUserPage = () => {
                 }}
                 disabled={isSubmitting}
                 className={`w-full px-4 py-2.5 bg-slate-50 border rounded-xl text-sm focus:outline-none focus:ring-2 focus:bg-white transition-all ${
-                  validationErrors.apellido ? 'border-rose-300 focus:ring-rose-100 text-rose-900' : 'border-slate-200 focus:border-indigo-500 focus:ring-indigo-100'
+                  validationErrors.apellido ? 'border-rose-300 focus:ring-rose-100 text-rose-900' : 'border-slate-200 focus:border-emerald-500 focus:ring-emerald-100'
                 }`}
               />
               {validationErrors.apellido && (
@@ -185,7 +185,7 @@ const CreateUserPage = () => {
               }}
               disabled={isSubmitting}
               className={`w-full px-4 py-2.5 bg-slate-50 border rounded-xl text-sm focus:outline-none focus:ring-2 focus:bg-white transition-all ${
-                validationErrors.email ? 'border-rose-300 focus:ring-rose-100 text-rose-900' : 'border-slate-200 focus:border-indigo-500 focus:ring-indigo-100'
+                validationErrors.email ? 'border-rose-300 focus:ring-rose-100 text-rose-900' : 'border-slate-200 focus:border-emerald-500 focus:ring-emerald-100'
               }`}
             />
             {validationErrors.email && (
@@ -208,7 +208,7 @@ const CreateUserPage = () => {
               }}
               disabled={isSubmitting}
               className={`w-full px-4 py-2.5 bg-slate-50 border rounded-xl text-sm focus:outline-none focus:ring-2 focus:bg-white transition-all ${
-                validationErrors.password ? 'border-rose-300 focus:ring-rose-100 text-rose-900' : 'border-slate-200 focus:border-indigo-500 focus:ring-indigo-100'
+                validationErrors.password ? 'border-rose-300 focus:ring-rose-100 text-rose-900' : 'border-slate-200 focus:border-emerald-500 focus:ring-emerald-100'
               }`}
             />
             {validationErrors.password && (
@@ -225,7 +225,7 @@ const CreateUserPage = () => {
               value={rol}
               onChange={(e) => setRol(e.target.value)}
               disabled={isSubmitting}
-              className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 focus:bg-white rounded-xl text-sm focus:outline-none transition-all cursor-pointer font-medium"
+              className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 focus:bg-white rounded-xl text-sm focus:outline-none transition-all cursor-pointer font-medium"
             >
               <option value="USER">USER (Talento Local)</option>
               <option value="HOST">HOST (Anfitrión Local)</option>
@@ -244,7 +244,7 @@ const CreateUserPage = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="flex items-center justify-center py-2.5 px-6 rounded-xl text-sm font-semibold text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-100 disabled:bg-indigo-400 disabled:cursor-not-allowed transition-all shadow-sm active:scale-98"
+              className="flex items-center justify-center py-2.5 px-6 rounded-xl text-sm font-semibold text-white bg-emerald-600 hover:bg-emerald-700 focus:ring-4 focus:ring-emerald-100 disabled:bg-emerald-400 disabled:cursor-not-allowed transition-all shadow-sm active:scale-98"
             >
               {isSubmitting ? (
                 <div className="flex items-center gap-2">

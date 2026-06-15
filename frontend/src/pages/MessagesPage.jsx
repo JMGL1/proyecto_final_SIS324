@@ -42,24 +42,24 @@ const ConversationItem = ({ conv, isActive, currentUserId, currentRole, onClick 
     ? conv.request?.service?.owner
     : conv.request?.user;
 
-  const serviceName = conv.request?.service?.title || 'Servicio';
+  const serviceName = conv.request?.service?.title || 'Taller';
   const unread = lastMsg && lastMsg.senderId !== currentUserId && !lastMsg.readAt;
 
   return (
     <button
       onClick={onClick}
-      className={`w-full text-left px-4 py-3.5 flex gap-3 items-start transition-all duration-150 border-b border-slate-100 hover:bg-indigo-50/60 ${
-        isActive ? 'bg-indigo-50 border-l-2 border-l-indigo-500' : ''
+      className={`w-full text-left px-4 py-3.5 flex gap-3 items-start transition-all duration-150 border-b border-slate-100 hover:bg-emerald-50/60 ${
+        isActive ? 'bg-emerald-50 border-l-2 border-l-emerald-500' : ''
       }`}
     >
       {/* Avatar */}
-      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-400 to-indigo-600 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">
+      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">
         {getInitials(otherPerson?.nombre, otherPerson?.apellido)}
       </div>
 
       <div className="flex-1 min-w-0">
         <div className="flex items-center justify-between gap-2">
-          <span className={`text-sm font-semibold truncate ${isActive ? 'text-indigo-700' : 'text-slate-800'}`}>
+          <span className={`text-sm font-semibold truncate ${isActive ? 'text-emerald-700' : 'text-slate-800'}`}>
             {otherPerson?.nombre} {otherPerson?.apellido}
           </span>
           {lastMsg && (
@@ -75,7 +75,7 @@ const ConversationItem = ({ conv, isActive, currentUserId, currentRole, onClick 
       </div>
 
       {unread && (
-        <span className="w-2 h-2 rounded-full bg-indigo-500 flex-shrink-0 mt-1.5" />
+        <span className="w-2 h-2 rounded-full bg-emerald-500 flex-shrink-0 mt-1.5" />
       )}
     </button>
   );
@@ -87,7 +87,7 @@ const MessageBubble = ({ msg, isOwn }) => (
     <div
       className={`max-w-[75%] px-4 py-2.5 rounded-2xl text-sm shadow-sm leading-relaxed ${
         isOwn
-          ? 'bg-indigo-600 text-white rounded-br-sm'
+          ? 'bg-emerald-600 text-white rounded-br-sm'
           : 'bg-white text-slate-800 border border-slate-100 rounded-bl-sm'
       }`}
     >
@@ -256,7 +256,7 @@ export default function MessagesPage() {
       >
         {/* Header sidebar */}
         <div className="px-5 py-4 border-b border-slate-100 flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center">
+          <div className="w-8 h-8 rounded-lg bg-emerald-600 flex items-center justify-center">
             <Icon d={ICONS.inbox} size="w-4 h-4" strokeWidth={2} />
           </div>
           <div>
@@ -287,8 +287,8 @@ export default function MessagesPage() {
               <p className="text-sm font-semibold text-slate-600 mb-1">Sin conversaciones</p>
               <p className="text-xs text-slate-400">
                 {user?.rol === 'USER'
-                  ? 'Cuando una solicitud sea aceptada, podrás chatear con el ofertante.'
-                  : 'Cuando aceptes una solicitud, aparecerá aquí el chat con el usuario.'}
+                  ? 'Cuando una inscripción sea aceptada, podrás chatear con el ofertante.'
+                  : 'Cuando aceptes una inscripción, aparecerá aquí el chat con el usuario.'}
               </p>
             </div>
           ) : (
@@ -314,7 +314,7 @@ export default function MessagesPage() {
         {!activeConvId ? (
           /* Estado vacío */
           <div className="flex-1 flex flex-col items-center justify-center text-center px-8 bg-slate-50">
-            <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-indigo-500 to-indigo-700 flex items-center justify-center shadow-xl mb-5">
+            <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-emerald-500 to-emerald-700 flex items-center justify-center shadow-xl mb-5">
               <Icon d={ICONS.chat} size="w-9 h-9" />
             </div>
             <h2 className="text-lg font-bold text-slate-700 mb-2">Selecciona una conversación</h2>
@@ -333,7 +333,7 @@ export default function MessagesPage() {
               </button>
 
               {/* Avatar */}
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-400 to-indigo-600 flex items-center justify-center text-white text-sm font-bold">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center text-white text-sm font-bold">
                 {getInitials(otherPerson?.nombre, otherPerson?.apellido)}
               </div>
 
@@ -364,7 +364,7 @@ export default function MessagesPage() {
                 </div>
               ) : messages.length === 0 ? (
                 <div className="flex flex-col items-center justify-center h-full text-center">
-                  <div className="w-12 h-12 rounded-2xl bg-indigo-50 flex items-center justify-center mb-3">
+                  <div className="w-12 h-12 rounded-2xl bg-emerald-50 flex items-center justify-center mb-3">
                     <Icon d={ICONS.chat} size="w-6 h-6" />
                   </div>
                   <p className="text-sm text-slate-500 font-medium">¡Inicia la conversación!</p>
@@ -393,7 +393,7 @@ export default function MessagesPage() {
                   placeholder="Escribe un mensaje… (Enter para enviar)"
                   rows={1}
                   className="flex-1 resize-none rounded-2xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm text-slate-800 placeholder-slate-400
-                    focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-400
+                    focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-400
                     transition-all max-h-32 overflow-y-auto leading-relaxed"
                   style={{ height: 'auto' }}
                   onInput={(e) => {
@@ -404,7 +404,7 @@ export default function MessagesPage() {
                 <button
                   onClick={handleSend}
                   disabled={!draft.trim() || sending}
-                  className="w-10 h-10 rounded-2xl bg-indigo-600 hover:bg-indigo-700 disabled:opacity-40 disabled:cursor-not-allowed
+                  className="w-10 h-10 rounded-2xl bg-emerald-600 hover:bg-emerald-700 disabled:opacity-40 disabled:cursor-not-allowed
                     flex items-center justify-center text-white transition-all shadow-sm hover:shadow-md flex-shrink-0"
                 >
                   <Icon d={ICONS.send} size="w-4 h-4" />

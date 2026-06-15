@@ -14,8 +14,8 @@ const ProtectedRoute = ({ children, allowedRoles }) => {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-slate-50">
         <div className="relative w-12 h-12">
-          <div className="absolute top-0 left-0 w-full h-full border-4 border-indigo-100 rounded-full"></div>
-          <div className="absolute top-0 left-0 w-full h-full border-4 border-indigo-600 rounded-full border-t-transparent animate-spin"></div>
+          <div className="absolute top-0 left-0 w-full h-full border-4 border-emerald-100 rounded-full"></div>
+          <div className="absolute top-0 left-0 w-full h-full border-4 border-emerald-600 rounded-full border-t-transparent animate-spin"></div>
         </div>
         <p className="mt-4 text-sm font-medium text-slate-500 animate-pulse">
           Estableciendo conexión segura...
@@ -46,7 +46,7 @@ const ProtectedRoute = ({ children, allowedRoles }) => {
           </p>
           <a
             href={user?.rol === 'USER' ? '/services/explore' : '/dashboard'}
-            className="inline-flex items-center justify-center px-5 py-2.5 rounded-xl text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 hover:shadow-lg active:scale-95 transition-all duration-200"
+            className="inline-flex items-center justify-center px-5 py-2.5 rounded-xl text-sm font-medium text-white bg-emerald-600 hover:bg-emerald-700 hover:shadow-lg active:scale-95 transition-all duration-200"
           >
             Volver al Inicio
           </a>

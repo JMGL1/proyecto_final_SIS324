@@ -1,7 +1,7 @@
 import api from './api.js';
 
 /**
- * Obtener todos los servicios aprobados (Público)
+ * Obtener todos los talleres aprobados (Público)
  * @param {Object} filters - { search, category, sort, page, limit }
  */
 const getPublicServices = async (filters = {}) => {
@@ -17,7 +17,7 @@ const getPublicServices = async (filters = {}) => {
 };
 
 /**
- * Obtener los servicios del HOST autenticado
+ * Obtener los talleres del HOST autenticado
  */
 const getMyServices = async () => {
   const response = await api.get('/api/services/my-services');
@@ -25,7 +25,7 @@ const getMyServices = async () => {
 };
 
 /**
- * Obtener los servicios pendientes de aprobación (ADMIN)
+ * Obtener los talleres pendientes de aprobación (ADMIN)
  */
 const getPendingServices = async () => {
   const response = await api.get('/api/services/pending');
@@ -33,7 +33,7 @@ const getPendingServices = async () => {
 };
 
 /**
- * Crear un nuevo servicio
+ * Crear un nuevo taller
  * @param {Object} serviceData - { title, description, price, category }
  */
 const createService = async (serviceData) => {
@@ -42,8 +42,8 @@ const createService = async (serviceData) => {
 };
 
 /**
- * Actualizar un servicio
- * @param {string} id - UUID del servicio
+ * Actualizar un taller
+ * @param {string} id - UUID del taller
  * @param {Object} serviceData - { title, description, price, category }
  */
 const updateService = async (id, serviceData) => {
@@ -52,8 +52,8 @@ const updateService = async (id, serviceData) => {
 };
 
 /**
- * Eliminar un servicio
- * @param {string} id - UUID del servicio
+ * Eliminar un taller
+ * @param {string} id - UUID del taller
  */
 const deleteService = async (id) => {
   const response = await api.delete(`/api/services/${id}`);
@@ -61,8 +61,8 @@ const deleteService = async (id) => {
 };
 
 /**
- * Aprobar un servicio (ADMIN)
- * @param {string} id - UUID del servicio
+ * Aprobar un taller (ADMIN)
+ * @param {string} id - UUID del taller
  */
 const approveService = async (id) => {
   const response = await api.patch(`/api/services/${id}/approve`);
@@ -70,8 +70,8 @@ const approveService = async (id) => {
 };
 
 /**
- * Rechazar un servicio (ADMIN)
- * @param {string} id - UUID del servicio
+ * Rechazar un taller (ADMIN)
+ * @param {string} id - UUID del taller
  */
 const rejectService = async (id) => {
   const response = await api.patch(`/api/services/${id}/reject`);

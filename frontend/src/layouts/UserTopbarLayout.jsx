@@ -5,7 +5,7 @@ import useAuth from '../hooks/useAuth.js';
 /* Ícono de logo TallerioCapital */
 const CotalLogo = () => (
   <div className="relative w-8 h-8 flex-shrink-0">
-    <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-indigo-500 via-indigo-600 to-indigo-700 flex items-center justify-center shadow-glow-indigo">
+    <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-emerald-500 via-emerald-600 to-emerald-700 flex items-center justify-center shadow-glow-emerald">
       <span className="text-white font-display font-bold text-base leading-none select-none">C</span>
     </div>
     <div className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-emerald-400 rounded-full border-2 border-white" />
@@ -33,8 +33,8 @@ const UserTopbarLayout = () => {
   const isActive = (path) => location.pathname === path;
 
   const navItems = [
-    { name: 'Explorar Servicios', href: '/services/explore' },
-    { name: 'Mis Solicitudes', href: '/my-requests' },
+    { name: 'Explorar Talleres', href: '/services/explore' },
+    { name: 'Mis Inscripciones', href: '/my-requests' },
     { name: 'Mensajes', href: '/messages' },
     { name: 'Mi Actividad', href: '/my-overview' },
   ];
@@ -49,7 +49,7 @@ const UserTopbarLayout = () => {
           <Link to="/services/explore" className="flex items-center gap-3 group">
             <CotalLogo />
             <div>
-              <span className="font-display font-extrabold text-[15px] tracking-tight text-slate-900 block leading-none group-hover:text-indigo-600 transition-colors">
+              <span className="font-display font-extrabold text-[15px] tracking-tight text-slate-900 block leading-none group-hover:text-emerald-600 transition-colors">
                 TallerioCapital
               </span>
               <span className="text-[10px] text-slate-400 font-medium leading-none mt-0.5 block">
@@ -68,7 +68,7 @@ const UserTopbarLayout = () => {
                   to={item.href}
                   className={`px-4 py-2 rounded-xl text-xs font-semibold tracking-wide transition-all duration-150
                     ${active
-                      ? 'bg-indigo-50 text-indigo-700'
+                      ? 'bg-emerald-50 text-emerald-700'
                       : 'text-slate-500 hover:text-slate-900 hover:bg-slate-50/80'
                     }`}
                 >
@@ -80,8 +80,8 @@ const UserTopbarLayout = () => {
 
           {/* Acciones del Usuario (Desktop) */}
           <div className="hidden md:flex items-center gap-4 relative">
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-indigo-50 text-indigo-700 border border-indigo-100 rounded-full text-2xs font-semibold">
-              <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse inline-block" />
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-emerald-50 text-emerald-700 border border-emerald-100 rounded-full text-2xs font-semibold">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse inline-block" />
               Sesión Activa
             </span>
 
@@ -153,7 +153,7 @@ const UserTopbarLayout = () => {
                   to={item.href}
                   onClick={() => setMobileMenuOpen(false)}
                   className={`block px-3 py-2.5 rounded-xl text-xs font-semibold transition-all
-                    ${active ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600 hover:bg-slate-50'}`}
+                    ${active ? 'bg-emerald-50 text-emerald-700' : 'text-slate-600 hover:bg-slate-50'}`}
                 >
                   {item.name}
                 </Link>

@@ -9,7 +9,7 @@ const api = axios.create({
 });
 
 /**
- * Interceptor de solicitudes: adjunta automáticamente el token JWT
+ * Interceptor de inscripciónes: adjunta automáticamente el token JWT
  * de localStorage a las cabeceras de cada petición HTTP.
  */
 api.interceptors.request.use(

@@ -84,13 +84,13 @@ const StatusBadge = ({ status }) => {
 /* KPI Card */
 const KpiCard = ({ label, value, color }) => {
   const variants = {
-    indigo:  'from-indigo-500 to-indigo-600',
+    emerald:  'from-emerald-500 to-emerald-600',
     amber:   'from-amber-400 to-amber-500',
     emerald: 'from-emerald-500 to-emerald-600',
     rose:    'from-rose-500 to-rose-600',
   };
   return (
-    <div className={`bg-gradient-to-br ${variants[color] || variants.indigo} rounded-2xl p-4 text-white`}>
+    <div className={`bg-gradient-to-br ${variants[color] || variants.emerald} rounded-2xl p-4 text-white`}>
       <p className="text-2xl font-display font-extrabold leading-none">{value}</p>
       <p className="text-xs text-white/75 font-medium mt-1.5">{label}</p>
     </div>
@@ -100,7 +100,7 @@ const KpiCard = ({ label, value, color }) => {
 /* RequestCard ─────────────────────────────────────────────────────── */
 const RequestCard = ({ req, onRate, onChat }) => (
   <div className="group bg-white rounded-2xl border border-slate-100 shadow-premium overflow-hidden
-    hover:shadow-premium-hover hover:border-indigo-100 hover:-translate-y-0.5 transition-all duration-200">
+    hover:shadow-premium-hover hover:border-emerald-100 hover:-translate-y-0.5 transition-all duration-200">
 
     {/* Banda lateral de estado */}
     <div className={`flex flex-col md:flex-row`}>
@@ -114,12 +114,12 @@ const RequestCard = ({ req, onRate, onChat }) => (
         {/* Cabecera */}
         <div className="flex flex-wrap items-start justify-between gap-3 pb-4 border-b border-slate-50">
           <div className="min-w-0">
-            <span className="text-2xs text-slate-400 font-semibold uppercase tracking-wider block">Servicio solicitado</span>
+            <span className="text-2xs text-slate-400 font-semibold uppercase tracking-wider block">Taller solicitado</span>
             <h3 className="font-bold text-slate-800 text-sm mt-0.5 leading-snug truncate">{req.service?.title}</h3>
           </div>
           <div className="flex items-center gap-3 flex-shrink-0">
             <div className="text-right">
-              <span className="text-lg font-extrabold font-display text-indigo-600">${req.service?.price?.toFixed(2)}</span>
+              <span className="text-lg font-extrabold font-display text-emerald-600">${req.service?.price?.toFixed(2)}</span>
               <span className="block text-2xs text-slate-400 font-medium mt-0.5">{req.service?.category}</span>
             </div>
             <StatusBadge status={req.status} />
@@ -159,7 +159,7 @@ const RequestCard = ({ req, onRate, onChat }) => (
             {/* Fecha deseada */}
             <div>
               <span className="text-2xs text-slate-400 font-semibold uppercase tracking-wider block mb-1">Fecha deseada</span>
-              <p className="text-xs font-semibold text-indigo-600 flex items-center gap-1.5">
+              <p className="text-xs font-semibold text-emerald-600 flex items-center gap-1.5">
                 <Icon d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" size="w-3.5 h-3.5" />
                 {formatDate(req.desiredDate)}
               </p>
@@ -180,7 +180,7 @@ const RequestCard = ({ req, onRate, onChat }) => (
             {/* Método de pago */}
             <div>
               <span className="text-2xs text-slate-400 font-semibold uppercase tracking-wider block mb-1">Método de pago</span>
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-bold rounded-lg border border-indigo-100 bg-indigo-50/50 text-indigo-700">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-bold rounded-lg border border-emerald-100 bg-emerald-50/50 text-emerald-700">
                 {PAYMENT_METHODS[req.paymentMethod] || 'Efectivo'}
               </span>
             </div>
@@ -197,7 +197,7 @@ const RequestCard = ({ req, onRate, onChat }) => (
                   ) : (
                     <button
                       onClick={() => onRate(req)}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-xs font-bold shadow-sm transition-all active:scale-95"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-bold shadow-sm transition-all active:scale-95"
                     >
                       <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
                         <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
@@ -260,7 +260,7 @@ const MyRequestsPage = () => {
       setRequests(response.data || []);
     } catch (err) {
       console.error(err);
-      setErrorMsg('No se pudo cargar el historial de tus solicitudes.');
+      setErrorMsg('No se pudo cargar el historial de tus inscripciónes.');
     } finally {
       setLoading(false);
     }
@@ -272,7 +272,7 @@ const MyRequestsPage = () => {
   };
 
   const handleReviewSuccess = (newReview) => {
-    // Actualizar solicitud localmente para mostrar la calificación
+    // Actualizar inscripción localmente para mostrar la calificación
     setRequests((prev) =>
       prev.map((r) => (r.id === selectedRequest.id ? { ...r, review: newReview } : r))
     );
@@ -303,9 +303,9 @@ const MyRequestsPage = () => {
       {/* Encabezado */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <div>
-          <h2 className="text-xl font-display font-bold text-slate-900 md:text-2xl">Mis Solicitudes</h2>
+          <h2 className="text-xl font-display font-bold text-slate-900 md:text-2xl">Mis Inscripciones</h2>
           <p className="text-xs text-slate-500 mt-1">
-            Consulta el estado de todas las solicitudes de servicios que has enviado.
+            Consulta el estado de todas las inscripciónes de talleres que has enviado.
           </p>
         </div>
         {!loading && requests.length > 0 && (
@@ -353,13 +353,13 @@ const MyRequestsPage = () => {
       ) : requests.length === 0 ? (
         /* Estado vacío */
         <div className="bg-white border border-slate-100 rounded-2xl p-14 text-center shadow-premium space-y-4">
-          <div className="w-16 h-16 bg-indigo-50 text-indigo-300 rounded-2xl flex items-center justify-center mx-auto border border-indigo-100">
+          <div className="w-16 h-16 bg-emerald-50 text-emerald-300 rounded-2xl flex items-center justify-center mx-auto border border-emerald-100">
             <Icon d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" size="w-8 h-8" stroke={1.4} />
           </div>
           <div>
-            <h3 className="text-sm font-bold text-slate-700">No tienes solicitudes aún</h3>
+            <h3 className="text-sm font-bold text-slate-700">No tienes inscripciónes aún</h3>
             <p className="text-xs text-slate-400 max-w-xs mx-auto mt-1 leading-relaxed">
-              Cuando solicites un servicio desde "Explorar Servicios", aparecerá aquí con su estado actualizado.
+              Cuando solicites un taller desde "Explorar Talleres", aparecerá aquí con su estado actualizado.
             </p>
           </div>
         </div>
@@ -367,7 +367,7 @@ const MyRequestsPage = () => {
         <>
           {/* KPI Cards */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            <KpiCard label="Total enviadas" value={stats.total}    color="indigo"  />
+            <KpiCard label="Total enviadas" value={stats.total}    color="emerald"  />
             <KpiCard label="Pendientes"     value={stats.pending}  color="amber"   />
             <KpiCard label="Aceptadas"      value={stats.accepted} color="emerald" />
             <KpiCard label="Rechazadas"     value={stats.rejected} color="rose"    />
@@ -376,7 +376,7 @@ const MyRequestsPage = () => {
           {/* Lista filtrada */}
           {filteredRequests.length === 0 ? (
             <div className="bg-white border border-slate-100 rounded-2xl p-10 text-center">
-              <p className="text-sm text-slate-500">No hay solicitudes con este estado.</p>
+              <p className="text-sm text-slate-500">No hay inscripciónes con este estado.</p>
             </div>
           ) : (
             <div className="space-y-4">

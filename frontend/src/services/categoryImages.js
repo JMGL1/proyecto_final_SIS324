@@ -1,5 +1,5 @@
 /**
- * Helper para obtener imágenes representativas según la categoría del servicio
+ * Helper para obtener imágenes representativas según la categoría del taller
  */
 
 const CATEGORY_IMAGES = {

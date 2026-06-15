@@ -4,16 +4,16 @@ const Skeleton = ({ className = '' }) => (
   <div className={`animate-pulse bg-slate-200 rounded ${className}`} />
 );
 
-const StatCard = ({ label, value, icon, color = 'indigo', loading = false, sub }) => {
+const StatCard = ({ label, value, icon, color = 'emerald', loading = false, sub }) => {
   const colors = {
-    indigo:  { bg: 'bg-indigo-50',  icon: 'text-indigo-600',  border: 'border-indigo-100' },
+    emerald:  { bg: 'bg-emerald-50',  icon: 'text-emerald-600',  border: 'border-emerald-100' },
     emerald: { bg: 'bg-emerald-50', icon: 'text-emerald-600', border: 'border-emerald-100' },
     amber:   { bg: 'bg-amber-50',   icon: 'text-amber-600',   border: 'border-amber-100' },
     slate:   { bg: 'bg-slate-100',  icon: 'text-slate-600',   border: 'border-slate-200' },
     rose:    { bg: 'bg-rose-50',    icon: 'text-rose-600',    border: 'border-rose-100' },
   };
 
-  const c = colors[color] || colors.indigo;
+  const c = colors[color] || colors.emerald;
 
   return (
     <div className="bg-white rounded-2xl border border-slate-100 shadow-premium p-5 flex flex-col gap-4

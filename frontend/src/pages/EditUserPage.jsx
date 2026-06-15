@@ -108,7 +108,7 @@ const EditUserPage = () => {
       <div className="max-w-xl mx-auto flex flex-col items-center justify-center py-24 space-y-4">
         <div className="relative w-10 h-10">
           <div className="absolute inset-0 border-4 border-slate-100 rounded-full"></div>
-          <div className="absolute inset-0 border-4 border-indigo-600 rounded-full border-t-transparent animate-spin"></div>
+          <div className="absolute inset-0 border-4 border-emerald-600 rounded-full border-t-transparent animate-spin"></div>
         </div>
         <p className="text-xs font-semibold text-slate-400 animate-pulse">
           Cargando datos del usuario...
@@ -123,7 +123,7 @@ const EditUserPage = () => {
       <div className="space-y-3">
         <Link
           to="/users"
-          className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-indigo-600 transition-colors"
+          className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-emerald-600 transition-colors"
         >
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -179,7 +179,7 @@ const EditUserPage = () => {
                 className={`w-full px-4 py-2.5 bg-slate-50 border rounded-xl text-sm focus:outline-none focus:ring-2 focus:bg-white transition-all ${
                   validationErrors.nombre
                     ? 'border-rose-300 focus:ring-rose-100'
-                    : 'border-slate-200 focus:border-indigo-500 focus:ring-indigo-100'
+                    : 'border-slate-200 focus:border-emerald-500 focus:ring-emerald-100'
                 }`}
               />
               {validationErrors.nombre && (
@@ -203,7 +203,7 @@ const EditUserPage = () => {
                 className={`w-full px-4 py-2.5 bg-slate-50 border rounded-xl text-sm focus:outline-none focus:ring-2 focus:bg-white transition-all ${
                   validationErrors.apellido
                     ? 'border-rose-300 focus:ring-rose-100'
-                    : 'border-slate-200 focus:border-indigo-500 focus:ring-indigo-100'
+                    : 'border-slate-200 focus:border-emerald-500 focus:ring-emerald-100'
                 }`}
               />
               {validationErrors.apellido && (
@@ -229,7 +229,7 @@ const EditUserPage = () => {
               className={`w-full px-4 py-2.5 bg-slate-50 border rounded-xl text-sm focus:outline-none focus:ring-2 focus:bg-white transition-all ${
                 validationErrors.email
                   ? 'border-rose-300 focus:ring-rose-100'
-                  : 'border-slate-200 focus:border-indigo-500 focus:ring-indigo-100'
+                  : 'border-slate-200 focus:border-emerald-500 focus:ring-emerald-100'
               }`}
             />
             {validationErrors.email && (
@@ -246,7 +246,7 @@ const EditUserPage = () => {
               value={rol}
               onChange={(e) => setRol(e.target.value)}
               disabled={isSubmitting}
-              className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 focus:bg-white rounded-xl text-sm focus:outline-none transition-all cursor-pointer font-medium"
+              className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 focus:bg-white rounded-xl text-sm focus:outline-none transition-all cursor-pointer font-medium"
             >
               <option value="USER">USER — Talento Local</option>
               <option value="HOST">HOST — Anfitrión Local</option>
@@ -275,7 +275,7 @@ const EditUserPage = () => {
               className={`w-full px-4 py-2.5 bg-slate-50 border rounded-xl text-sm focus:outline-none focus:ring-2 focus:bg-white transition-all ${
                 validationErrors.password
                   ? 'border-rose-300 focus:ring-rose-100'
-                  : 'border-slate-200 focus:border-indigo-500 focus:ring-indigo-100'
+                  : 'border-slate-200 focus:border-emerald-500 focus:ring-emerald-100'
               }`}
             />
             {validationErrors.password && (
@@ -294,7 +294,7 @@ const EditUserPage = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="flex items-center justify-center py-2.5 px-6 rounded-xl text-sm font-semibold text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-100 disabled:bg-indigo-400 disabled:cursor-not-allowed transition-all shadow-sm active:scale-95"
+              className="flex items-center justify-center py-2.5 px-6 rounded-xl text-sm font-semibold text-white bg-emerald-600 hover:bg-emerald-700 focus:ring-4 focus:ring-emerald-100 disabled:bg-emerald-400 disabled:cursor-not-allowed transition-all shadow-sm active:scale-95"
             >
               {isSubmitting ? (
                 <div className="flex items-center gap-2">

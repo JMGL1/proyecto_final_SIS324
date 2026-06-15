@@ -21,7 +21,7 @@ const NotificationPanel = ({ role, stats, loading = false }) => {
         notifications.push({
           id: 'admin-pending-services',
           type: 'warning',
-          message: `Tienes ${stats.pendingServices} ${stats.pendingServices === 1 ? 'servicio pendiente' : 'servicios pendientes'} de aprobación.`,
+          message: `Tienes ${stats.pendingServices} ${stats.pendingServices === 1 ? 'taller pendiente' : 'talleres pendientes'} de aprobación.`,
           actionLink: '/services/pending',
         });
       }
@@ -29,7 +29,7 @@ const NotificationPanel = ({ role, stats, loading = false }) => {
         notifications.push({
           id: 'admin-pending-requests',
           type: 'info',
-          message: `Hay ${stats.pendingRequests} ${stats.pendingRequests === 1 ? 'solicitud de servicio registrada' : 'solicitudes de servicios registradas'} en espera de respuesta por hosts.`,
+          message: `Hay ${stats.pendingRequests} ${stats.pendingRequests === 1 ? 'inscripción de taller registrada' : 'inscripciónes de talleres registradas'} en espera de respuesta por hosts.`,
         });
       }
     } else if (role === 'HOST') {
@@ -37,7 +37,7 @@ const NotificationPanel = ({ role, stats, loading = false }) => {
         notifications.push({
           id: 'host-pending-requests',
           type: 'warning',
-          message: `Tienes ${stats.pendingRequestsReceived} ${stats.pendingRequestsReceived === 1 ? 'solicitud pendiente' : 'solicitudes pendientes'} por responder.`,
+          message: `Tienes ${stats.pendingRequestsReceived} ${stats.pendingRequestsReceived === 1 ? 'inscripción pendiente' : 'inscripciónes pendientes'} por responder.`,
           actionLink: '/service-requests',
         });
       }
@@ -45,7 +45,7 @@ const NotificationPanel = ({ role, stats, loading = false }) => {
         notifications.push({
           id: 'host-pending-services',
           type: 'info',
-          message: `${stats.pendingServices} ${stats.pendingServices === 1 ? 'de tus servicios sigue' : 'de tus servicios siguen'} pendiente de aprobación por el administrador.`,
+          message: `${stats.pendingServices} ${stats.pendingServices === 1 ? 'de tus talleres sigue' : 'de tus talleres siguen'} pendiente de aprobación por el administrador.`,
           actionLink: '/services',
         });
       }
@@ -54,7 +54,7 @@ const NotificationPanel = ({ role, stats, loading = false }) => {
         notifications.push({
           id: 'user-accepted-requests',
           type: 'success',
-          message: `Tienes ${stats.acceptedRequests} ${stats.acceptedRequests === 1 ? 'solicitud aceptada' : 'solicitudes aceptadas'} por los proveedores.`,
+          message: `Tienes ${stats.acceptedRequests} ${stats.acceptedRequests === 1 ? 'inscripción aceptada' : 'inscripciónes aceptadas'} por los proveedores.`,
           actionLink: '/my-requests',
         });
       }
@@ -62,7 +62,7 @@ const NotificationPanel = ({ role, stats, loading = false }) => {
         notifications.push({
           id: 'user-pending-requests',
           type: 'info',
-          message: `Tienes ${stats.pendingRequests} ${stats.pendingRequests === 1 ? 'solicitud pendiente' : 'solicitudes pendientes'} de respuesta.`,
+          message: `Tienes ${stats.pendingRequests} ${stats.pendingRequests === 1 ? 'inscripción pendiente' : 'inscripciónes pendientes'} de respuesta.`,
           actionLink: '/my-requests',
         });
       }
@@ -88,9 +88,9 @@ const NotificationPanel = ({ role, stats, loading = false }) => {
       ),
     },
     info: {
-      bg: 'bg-indigo-50 border-indigo-100 text-indigo-800',
+      bg: 'bg-emerald-50 border-emerald-100 text-emerald-800',
       icon: (
-        <svg className="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
@@ -103,8 +103,8 @@ const NotificationPanel = ({ role, stats, loading = false }) => {
         <h3 className="text-sm font-bold text-slate-800 tracking-tight">Notificaciones Internas</h3>
         {notifications.length > 0 && (
           <span className="flex h-2 w-2 relative">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-600"></span>
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
           </span>
         )}
       </div>
@@ -130,7 +130,7 @@ const NotificationPanel = ({ role, stats, loading = false }) => {
                   <p className="text-xs font-medium leading-relaxed">{notif.message}</p>
                 </div>
                 {notif.actionLink && (
-                  <span className="text-3xs font-bold uppercase tracking-wider text-indigo-600 hover:text-indigo-800 transition-colors flex-shrink-0 flex items-center gap-0.5">
+                  <span className="text-3xs font-bold uppercase tracking-wider text-emerald-600 hover:text-emerald-800 transition-colors flex-shrink-0 flex items-center gap-0.5">
                     Revisar
                     <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />

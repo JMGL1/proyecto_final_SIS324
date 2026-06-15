@@ -1,7 +1,7 @@
 import api from './api.js';
 
 /**
- * Crear calificación para una solicitud aceptada
+ * Crear calificación para una inscripción aceptada
  * @param {Object} reviewData - { requestId, rating, comment }
  */
 const createReview = async (reviewData) => {

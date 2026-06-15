@@ -76,7 +76,7 @@ const StatPill = ({ label, value, color }) => {
   );
 };
 
-/* Tarjeta de solicitud recibida (HOST view) */
+/* Tarjeta de inscripción recibida (HOST view) */
 const RequestCard = ({ req, onAccept, onReject, onChat, actioningId }) => {
   const isActioning = actioningId === req.id;
   const isPending = req.status === 'PENDING';
@@ -97,13 +97,13 @@ const RequestCard = ({ req, onAccept, onReject, onChat, actioningId }) => {
       }`} />
 
       <div className="p-5 space-y-4">
-        {/* Cabecera: servicio + precio + badge */}
+        {/* Cabecera: taller + precio + badge */}
         <div className="flex flex-wrap items-start justify-between gap-3 pb-4 border-b border-slate-50">
           <div className="min-w-0">
-            <span className="text-2xs text-slate-400 font-semibold uppercase tracking-wider block">Solicitud para</span>
+            <span className="text-2xs text-slate-400 font-semibold uppercase tracking-wider block">Inscripción para</span>
             <h3 className="font-bold text-slate-800 text-sm mt-0.5 leading-snug">{req.service?.title}</h3>
             <div className="flex items-center gap-2 mt-1.5">
-              <span className="text-xs font-bold text-indigo-600">${req.service?.price?.toFixed(2)}</span>
+              <span className="text-xs font-bold text-emerald-600">${req.service?.price?.toFixed(2)}</span>
               <span className="w-1 h-1 rounded-full bg-slate-300" />
               <span className="text-2xs text-slate-500 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">{req.service?.category}</span>
             </div>
@@ -140,14 +140,14 @@ const RequestCard = ({ req, onAccept, onReject, onChat, actioningId }) => {
           <div className="space-y-3">
             <div>
               <span className="text-2xs text-slate-400 font-semibold uppercase tracking-wider block mb-1">Fecha deseada</span>
-              <p className="text-xs font-semibold text-indigo-600 flex items-center gap-1.5">
+              <p className="text-xs font-semibold text-emerald-600 flex items-center gap-1.5">
                 <Icon d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" size="w-3.5 h-3.5" />
                 {formatDate(req.desiredDate)}
               </p>
             </div>
             <div>
               <span className="text-2xs text-slate-400 font-semibold uppercase tracking-wider block mb-1">Método de pago</span>
-              <span className="inline-flex items-center gap-1.5 px-2 py-0.5 text-xs font-bold rounded-lg border border-indigo-100 bg-indigo-50/50 text-indigo-700">
+              <span className="inline-flex items-center gap-1.5 px-2 py-0.5 text-xs font-bold rounded-lg border border-emerald-100 bg-emerald-50/50 text-emerald-700">
                 {req.paymentMethod === 'CARD' ? 'Tarjeta' : req.paymentMethod === 'QR' ? 'Código QR' : 'Efectivo'}
               </span>
             </div>
@@ -218,7 +218,7 @@ const RequestCard = ({ req, onAccept, onReject, onChat, actioningId }) => {
           </div>
         )}
 
-        {/* Botón Chat — solo si la solicitud fue ACCEPTED */}
+        {/* Botón Chat — solo si la inscripción fue ACCEPTED */}
         {req.status === 'ACCEPTED' && (
           <div className="pt-1">
             <button
@@ -261,7 +261,7 @@ const MyServiceRequestsPage = () => {
       setRequests(response.data || []);
     } catch (err) {
       console.error(err);
-      setErrorMsg('No se pudo cargar el listado de solicitudes recibidas.');
+      setErrorMsg('No se pudo cargar el listado de inscripciónes recibidas.');
     } finally {
       setLoading(false);
     }
@@ -273,12 +273,12 @@ const MyServiceRequestsPage = () => {
     setSuccessMsg('');
     try {
       await serviceRequestService.acceptRequest(id);
-      setSuccessMsg(`La solicitud para el servicio "${title}" fue aceptada.`);
+      setSuccessMsg(`La inscripción para el taller "${title}" fue aceptada.`);
       setRequests((prev) => prev.map((r) => (r.id === id ? { ...r, status: 'ACCEPTED' } : r)));
       setTimeout(() => setSuccessMsg(''), 4500);
     } catch (err) {
       console.error(err);
-      setErrorMsg(err.response?.data?.message || 'No se pudo aceptar la solicitud.');
+      setErrorMsg(err.response?.data?.message || 'No se pudo aceptar la inscripción.');
     } finally {
       setActioningId(null);
     }
@@ -290,12 +290,12 @@ const MyServiceRequestsPage = () => {
     setSuccessMsg('');
     try {
       await serviceRequestService.rejectRequest(id);
-      setSuccessMsg(`La solicitud para el servicio "${title}" fue rechazada.`);
+      setSuccessMsg(`La inscripción para el taller "${title}" fue rechazada.`);
       setRequests((prev) => prev.map((r) => (r.id === id ? { ...r, status: 'REJECTED' } : r)));
       setTimeout(() => setSuccessMsg(''), 4500);
     } catch (err) {
       console.error(err);
-      setErrorMsg(err.response?.data?.message || 'No se pudo rechazar la solicitud.');
+      setErrorMsg(err.response?.data?.message || 'No se pudo rechazar la inscripción.');
     } finally {
       setActioningId(null);
     }
@@ -326,9 +326,9 @@ const MyServiceRequestsPage = () => {
       {/* Encabezado */}
       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
         <div>
-          <h2 className="text-xl font-display font-bold text-slate-900 md:text-2xl">Solicitudes Recibidas</h2>
+          <h2 className="text-xl font-display font-bold text-slate-900 md:text-2xl">Inscripciones Recibidas</h2>
           <p className="text-xs text-slate-500 mt-1">
-            Gestiona las solicitudes de clientes interesados en tus servicios.
+            Gestiona las inscripciónes de clientes interesados en tus talleres.
           </p>
         </div>
         {/* Filtros por estado */}
@@ -386,9 +386,9 @@ const MyServiceRequestsPage = () => {
             <Icon d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" size="w-8 h-8" stroke={1.4} />
           </div>
           <div>
-            <h3 className="text-sm font-bold text-slate-700">Sin solicitudes todavía</h3>
+            <h3 className="text-sm font-bold text-slate-700">Sin inscripciónes todavía</h3>
             <p className="text-xs text-slate-400 max-w-xs mx-auto mt-1 leading-relaxed">
-              Cuando un cliente solicite uno de tus servicios aprobados, aparecerá aquí para que puedas gestionarlo.
+              Cuando un cliente solicite uno de tus talleres aprobados, aparecerá aquí para que puedas gestionarlo.
             </p>
           </div>
         </div>
@@ -407,7 +407,7 @@ const MyServiceRequestsPage = () => {
             <div className="flex items-center gap-3 bg-amber-50 border border-amber-200 rounded-xl p-3.5">
               <div className="w-2 h-2 rounded-full bg-amber-400 animate-pulse flex-shrink-0" />
               <p className="text-xs text-amber-800 font-medium">
-                Tienes <strong>{stats.pending}</strong> solicitud{stats.pending !== 1 ? 'es' : ''} pendiente{stats.pending !== 1 ? 's' : ''} de respuesta.
+                Tienes <strong>{stats.pending}</strong> inscripción{stats.pending !== 1 ? 'es' : ''} pendiente{stats.pending !== 1 ? 's' : ''} de respuesta.
               </p>
               <button
                 onClick={() => setStatusFilter('pending')}
@@ -421,7 +421,7 @@ const MyServiceRequestsPage = () => {
           {/* Lista */}
           {filtered.length === 0 ? (
             <div className="bg-white border border-slate-100 rounded-2xl p-10 text-center">
-              <p className="text-sm text-slate-500">No hay solicitudes con este filtro.</p>
+              <p className="text-sm text-slate-500">No hay inscripciónes con este filtro.</p>
             </div>
           ) : (
             <div className="space-y-4">
