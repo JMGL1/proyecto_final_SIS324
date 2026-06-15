@@ -131,6 +131,13 @@ export const createServiceValidation = [
     .notEmpty()
     .withMessage('La categoría es obligatoria.'),
 
+  body('date').optional().trim(),
+  body('time').optional().trim(),
+  body('duration').optional().trim(),
+  body('modality').optional().isIn(['Presencial', 'Virtual', 'Híbrido']).withMessage('Modalidad inválida'),
+  body('capacity').optional().isInt({ min: 1 }).withMessage('Los cupos deben ser al menos 1'),
+  body('location').optional().trim(),
+
   validateResults,
 ];
 

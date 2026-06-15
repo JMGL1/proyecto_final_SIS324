@@ -63,6 +63,15 @@ model Service {
 
   status      ServiceStatus @default(PENDING)
 
+  // Campos adicionales del servicio (taller)
+  date        String?
+  time        String?
+  duration    String?
+  modality    String?
+  capacity    Int?
+  location    String?
+
+
   ownerId     String
   owner       User          @relation(fields: [ownerId], references: [id])
   requests    ServiceRequest[]

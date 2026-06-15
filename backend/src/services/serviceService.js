@@ -54,6 +54,12 @@ const createService = async (data, ownerId) => {
       description: data.description,
       price: data.price,
       category: data.category,
+      date: data.date,
+      time: data.time,
+      duration: data.duration,
+      modality: data.modality,
+      capacity: data.capacity ? parseInt(data.capacity, 10) : undefined,
+      location: data.location,
       ownerId,
       status: 'PENDING',
     },
@@ -73,11 +79,21 @@ const updateService = async (id, data) => {
     );
   }
 
+  if (data.capacity) {
+    data.capacity = parseInt(data.capacity, 10);
+  }
+
   const resetStatus =
     data.title ||
     data.description ||
     data.category ||
-    data.price;
+    data.price ||
+    data.date ||
+    data.time ||
+    data.duration ||
+    data.modality ||
+    data.capacity ||
+    data.location;
 
   return await prisma.service.update({
     where: { id },

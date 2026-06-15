@@ -12,6 +12,12 @@ const CreateServicePage = () => {
     description: '',
     price: '',
     category: '',
+    date: '',
+    time: '',
+    duration: '',
+    modality: 'Presencial',
+    capacity: '',
+    location: '',
   });
 
   const [loading, setLoading] = useState(false);
@@ -49,6 +55,15 @@ const CreateServicePage = () => {
     } else if (parseFloat(formData.price) <= 0) {
       errors.price = 'El precio debe ser mayor a 0.';
     }
+    if (!formData.date.trim()) errors.date = 'La fecha es obligatoria.';
+    if (!formData.time.trim()) errors.time = 'La hora es obligatoria.';
+    if (!formData.duration.trim()) errors.duration = 'La duración es obligatoria.';
+    if (!formData.location.trim()) errors.location = 'La ubicación es obligatoria.';
+    if (!formData.capacity) {
+      errors.capacity = 'Los cupos son obligatorios.';
+    } else if (parseInt(formData.capacity, 10) <= 0) {
+      errors.capacity = 'Debe haber al menos 1 cupo.';
+    }
 
     if (Object.keys(errors).length > 0) {
       setValidationErrors(errors);
@@ -62,6 +77,12 @@ const CreateServicePage = () => {
         description: formData.description.trim(),
         price: parseFloat(formData.price),
         category: formData.category.trim(),
+        date: formData.date.trim(),
+        time: formData.time.trim(),
+        duration: formData.duration.trim(),
+        modality: formData.modality,
+        capacity: parseInt(formData.capacity, 10),
+        location: formData.location.trim(),
       });
       navigate('/services');
     } catch (err) {
@@ -131,37 +152,121 @@ const CreateServicePage = () => {
           )}
         </div>
 
+        <div className="space-y-1">
+          <label htmlFor="description" className="block text-2xs font-semibold uppercase tracking-wider text-slate-400">
+            Descripción Detallada
+          </label>
+          <textarea
+            id="description"
+            name="description"
+            rows="4"
+            placeholder="Describe detalladamente en qué consiste tu servicio, requisitos previos, materiales..."
+            value={formData.description}
+            onChange={handleChange}
+            className={`w-full border rounded-xl p-3 text-xs bg-slate-50/50 hover:bg-slate-50 focus:bg-white transition-all outline-none resize-none ${
+              validationErrors.description ? 'border-rose-300 focus:border-rose-500 focus:ring-1 focus:ring-rose-500' : 'border-slate-200 focus:border-indigo-500'
+            }`}
+          />
+          {validationErrors.description && (
+            <p className="text-2xs font-medium text-rose-600 mt-1">{validationErrors.description}</p>
+          )}
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="space-y-1">
-            <label htmlFor="category" className="block text-2xs font-semibold uppercase tracking-wider text-slate-400">
-              Categoría
+            <label htmlFor="date" className="block text-2xs font-semibold uppercase tracking-wider text-slate-400">
+              Fecha *
             </label>
             <input
-              type="text"
-              id="category"
-              name="category"
-              placeholder="Ej. Música, Educación, Limpieza"
-              value={formData.category}
+              type="date"
+              id="date"
+              name="date"
+              value={formData.date}
               onChange={handleChange}
               className={`w-full border rounded-xl p-3 text-xs bg-slate-50/50 hover:bg-slate-50 focus:bg-white transition-all outline-none ${
-                validationErrors.category ? 'border-rose-300 focus:border-rose-500 focus:ring-1 focus:ring-rose-500' : 'border-slate-200 focus:border-indigo-500'
+                validationErrors.date ? 'border-rose-300 focus:border-rose-500 focus:ring-1 focus:ring-rose-500' : 'border-slate-200 focus:border-indigo-500'
               }`}
             />
-            {validationErrors.category && (
-              <p className="text-2xs font-medium text-rose-600 mt-1">{validationErrors.category}</p>
+            {validationErrors.date && (
+              <p className="text-2xs font-medium text-rose-600 mt-1">{validationErrors.date}</p>
             )}
           </div>
 
           <div className="space-y-1">
+            <label htmlFor="time" className="block text-2xs font-semibold uppercase tracking-wider text-slate-400">
+              Hora
+            </label>
+            <input
+              type="time"
+              id="time"
+              name="time"
+              value={formData.time}
+              onChange={handleChange}
+              className={`w-full border rounded-xl p-3 text-xs bg-slate-50/50 hover:bg-slate-50 focus:bg-white transition-all outline-none ${
+                validationErrors.time ? 'border-rose-300 focus:border-rose-500 focus:ring-1 focus:ring-rose-500' : 'border-slate-200 focus:border-indigo-500'
+              }`}
+            />
+            {validationErrors.time && (
+              <p className="text-2xs font-medium text-rose-600 mt-1">{validationErrors.time}</p>
+            )}
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="space-y-1">
+            <label htmlFor="duration" className="block text-2xs font-semibold uppercase tracking-wider text-slate-400">
+              Duración
+            </label>
+            <input
+              type="text"
+              id="duration"
+              name="duration"
+              placeholder="Ej: 3 horas, 2 días"
+              value={formData.duration}
+              onChange={handleChange}
+              className={`w-full border rounded-xl p-3 text-xs bg-slate-50/50 hover:bg-slate-50 focus:bg-white transition-all outline-none ${
+                validationErrors.duration ? 'border-rose-300 focus:border-rose-500 focus:ring-1 focus:ring-rose-500' : 'border-slate-200 focus:border-indigo-500'
+              }`}
+            />
+            {validationErrors.duration && (
+              <p className="text-2xs font-medium text-rose-600 mt-1">{validationErrors.duration}</p>
+            )}
+          </div>
+
+          <div className="space-y-1">
+            <label htmlFor="modality" className="block text-2xs font-semibold uppercase tracking-wider text-slate-400">
+              Modalidad
+            </label>
+            <select
+              id="modality"
+              name="modality"
+              value={formData.modality}
+              onChange={handleChange}
+              className={`w-full border rounded-xl p-3 text-xs bg-slate-50/50 hover:bg-slate-50 focus:bg-white transition-all outline-none ${
+                validationErrors.modality ? 'border-rose-300 focus:border-rose-500 focus:ring-1 focus:ring-rose-500' : 'border-slate-200 focus:border-indigo-500'
+              }`}
+            >
+              <option value="Presencial">🏢 Presencial</option>
+              <option value="Virtual">💻 Virtual</option>
+              <option value="Híbrido">🔄 Híbrido</option>
+            </select>
+            {validationErrors.modality && (
+              <p className="text-2xs font-medium text-rose-600 mt-1">{validationErrors.modality}</p>
+            )}
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="space-y-1">
             <label htmlFor="price" className="block text-2xs font-semibold uppercase tracking-wider text-slate-400">
-              Precio (USD)
+              Precio (Bs.)
             </label>
             <input
               type="number"
               step="0.01"
               id="price"
               name="price"
-              placeholder="Ej. 15.00"
+              placeholder="Ej. 150"
               value={formData.price}
               onChange={handleChange}
               className={`w-full border rounded-xl p-3 text-xs bg-slate-50/50 hover:bg-slate-50 focus:bg-white transition-all outline-none ${
@@ -172,25 +277,65 @@ const CreateServicePage = () => {
               <p className="text-2xs font-medium text-rose-600 mt-1">{validationErrors.price}</p>
             )}
           </div>
+
+          <div className="space-y-1">
+            <label htmlFor="capacity" className="block text-2xs font-semibold uppercase tracking-wider text-slate-400">
+              Cupos totales
+            </label>
+            <input
+              type="number"
+              id="capacity"
+              name="capacity"
+              placeholder="Ej. 10"
+              value={formData.capacity}
+              onChange={handleChange}
+              className={`w-full border rounded-xl p-3 text-xs bg-slate-50/50 hover:bg-slate-50 focus:bg-white transition-all outline-none ${
+                validationErrors.capacity ? 'border-rose-300 focus:border-rose-500 focus:ring-1 focus:ring-rose-500' : 'border-slate-200 focus:border-indigo-500'
+              }`}
+            />
+            {validationErrors.capacity && (
+              <p className="text-2xs font-medium text-rose-600 mt-1">{validationErrors.capacity}</p>
+            )}
+          </div>
         </div>
 
         <div className="space-y-1">
-          <label htmlFor="description" className="block text-2xs font-semibold uppercase tracking-wider text-slate-400">
-            Descripción Detallada
+          <label htmlFor="location" className="block text-2xs font-semibold uppercase tracking-wider text-slate-400">
+            Ubicación
           </label>
-          <textarea
-            id="description"
-            name="description"
-            rows="4"
-            placeholder="Describe detalladamente en qué consiste tu servicio, horarios o metodologías..."
-            value={formData.description}
+          <input
+            type="text"
+            id="location"
+            name="location"
+            placeholder="Ej: Centro Cultural Sucre, Calle Junín 123"
+            value={formData.location}
             onChange={handleChange}
-            className={`w-full border rounded-xl p-3 text-xs bg-slate-50/50 hover:bg-slate-50 focus:bg-white transition-all outline-none resize-none ${
-              validationErrors.description ? 'border-rose-300 focus:border-rose-500 focus:ring-1 focus:ring-rose-500' : 'border-slate-200 focus:border-indigo-500'
+            className={`w-full border rounded-xl p-3 text-xs bg-slate-50/50 hover:bg-slate-50 focus:bg-white transition-all outline-none ${
+              validationErrors.location ? 'border-rose-300 focus:border-rose-500 focus:ring-1 focus:ring-rose-500' : 'border-slate-200 focus:border-indigo-500'
             }`}
           />
-          {validationErrors.description && (
-            <p className="text-2xs font-medium text-rose-600 mt-1">{validationErrors.description}</p>
+          {validationErrors.location && (
+            <p className="text-2xs font-medium text-rose-600 mt-1">{validationErrors.location}</p>
+          )}
+        </div>
+
+        <div className="space-y-1">
+          <label htmlFor="category" className="block text-2xs font-semibold uppercase tracking-wider text-slate-400">
+            Categoría general
+          </label>
+          <input
+            type="text"
+            id="category"
+            name="category"
+            placeholder="Ej. Música, Educación, Limpieza"
+            value={formData.category}
+            onChange={handleChange}
+            className={`w-full border rounded-xl p-3 text-xs bg-slate-50/50 hover:bg-slate-50 focus:bg-white transition-all outline-none ${
+              validationErrors.category ? 'border-rose-300 focus:border-rose-500 focus:ring-1 focus:ring-rose-500' : 'border-slate-200 focus:border-indigo-500'
+            }`}
+          />
+          {validationErrors.category && (
+            <p className="text-2xs font-medium text-rose-600 mt-1">{validationErrors.category}</p>
           )}
         </div>
 
@@ -206,7 +351,7 @@ const CreateServicePage = () => {
             disabled={loading}
             className="flex-1 inline-flex justify-center items-center px-4 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-semibold shadow-sm transition-all"
           >
-            {loading ? 'Creando...' : 'Crear Servicio'}
+            {loading ? 'Publicando...' : '🚀 Publicar taller'}
           </button>
         </div>
       </form>
