@@ -188,7 +188,56 @@ const RequestServiceModal = ({ service, onClose }) => {
               </div>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="space-y-5">
+              {/* Información del Taller */}
+              <div className="bg-slate-50/80 rounded-xl border border-slate-100 p-4 space-y-3">
+                <h4 className="text-xs font-bold text-slate-800 uppercase tracking-wide border-b border-slate-200 pb-2">
+                  Detalles del Taller
+                </h4>
+                {service.description && (
+                  <div>
+                    <span className="block text-2xs font-semibold text-slate-400 uppercase">Descripción</span>
+                    <p className="text-xs text-slate-700 leading-relaxed mt-0.5 whitespace-pre-line">{service.description}</p>
+                  </div>
+                )}
+                
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                  {(service.date || service.time) && (
+                    <div>
+                      <span className="block text-2xs font-semibold text-slate-400 uppercase">Fecha y Hora</span>
+                      <p className="text-xs text-slate-700 font-medium mt-0.5">
+                        {service.date || '--'} <br/> {service.time ? `a las ${service.time}` : ''}
+                      </p>
+                    </div>
+                  )}
+                  {service.duration && (
+                    <div>
+                      <span className="block text-2xs font-semibold text-slate-400 uppercase">Duración</span>
+                      <p className="text-xs text-slate-700 font-medium mt-0.5">{service.duration}</p>
+                    </div>
+                  )}
+                  {service.modality && (
+                    <div>
+                      <span className="block text-2xs font-semibold text-slate-400 uppercase">Modalidad</span>
+                      <p className="text-xs text-slate-700 font-medium mt-0.5">{service.modality}</p>
+                    </div>
+                  )}
+                  {service.location && (
+                    <div>
+                      <span className="block text-2xs font-semibold text-slate-400 uppercase">Ubicación</span>
+                      <p className="text-xs text-slate-700 font-medium mt-0.5">{service.location}</p>
+                    </div>
+                  )}
+                  {service.capacity && (
+                    <div>
+                      <span className="block text-2xs font-semibold text-slate-400 uppercase">Cupos Totales</span>
+                      <p className="text-xs text-slate-700 font-medium mt-0.5">{service.capacity}</p>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              <form onSubmit={handleSubmit} className="space-y-4">
               {/* Error global */}
               {errorMsg && (
                 <div className="bg-rose-50 border border-rose-100 rounded-xl p-3.5 flex gap-2.5 text-rose-700 text-xs font-medium animate-fadeIn">
@@ -301,11 +350,11 @@ const RequestServiceModal = ({ service, onClose }) => {
                       Enviar Solicitud
                     </>
                   )}
-                </button>
               </div>
             </form>
-          )}
-        </div>
+          </div>
+        )}
+      </div>
       </div>
     </div>
   );
