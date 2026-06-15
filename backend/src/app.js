@@ -13,6 +13,7 @@ app.use(
       'http://localhost:5173',
       'https://cota-frontend.vercel.app',
       'https://cotal-render.onrender.com',
+      'https://learnupnow-nbpd.onrender.com',
     ],
     credentials: true,
   })

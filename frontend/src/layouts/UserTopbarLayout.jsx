@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../hooks/useAuth.js';
 
-/* Ícono de logo COTAL */
+/* Ícono de logo TallerioCapital */
 const CotalLogo = () => (
   <div className="relative w-8 h-8 flex-shrink-0">
     <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-indigo-500 via-indigo-600 to-indigo-700 flex items-center justify-center shadow-glow-indigo">
@@ -50,7 +50,7 @@ const UserTopbarLayout = () => {
             <CotalLogo />
             <div>
               <span className="font-display font-extrabold text-[15px] tracking-tight text-slate-900 block leading-none group-hover:text-indigo-600 transition-colors">
-                COTAL
+                TallerioCapital
               </span>
               <span className="text-[10px] text-slate-400 font-medium leading-none mt-0.5 block">
                 Comunidad de Talentos

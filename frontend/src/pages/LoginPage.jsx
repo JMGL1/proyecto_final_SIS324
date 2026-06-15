@@ -71,7 +71,7 @@ const LoginPage = () => {
           <div className="w-10 h-10 rounded-xl bg-white/10 backdrop-blur-md flex items-center justify-center font-display font-bold text-xl tracking-wider border border-white/20 shadow-inner-xs">
             C
           </div>
-          <span className="font-display font-semibold tracking-wide text-lg">COTAL</span>
+          <span className="font-display font-semibold tracking-wide text-lg">TallerioCapital</span>
         </div>
 
         {/* Centro del Hero: Mensaje y Composición Visual */}
@@ -131,7 +131,7 @@ const LoginPage = () => {
 
         {/* Footer del Hero */}
         <div className="relative z-10 text-xs text-indigo-200/60 flex justify-between items-center">
-          <span>© 2026 COTAL. Todos los derechos reservados.</span>
+          <span>© 2026 TallerioCapital. Todos los derechos reservados.</span>
           <div className="flex gap-4">
             <a href="#" className="hover:text-white transition-colors">Términos</a>
             <a href="#" className="hover:text-white transition-colors">Privacidad</a>
@@ -150,7 +150,7 @@ const LoginPage = () => {
             <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-indigo-600 to-indigo-700 flex items-center justify-center text-white font-display font-bold text-2xl shadow-premium mb-3">
               C
             </div>
-            <h1 className="text-2xl font-display font-bold text-slate-900">COTAL</h1>
+            <h1 className="text-2xl font-display font-bold text-slate-900">TallerioCapital</h1>
           </div>
 
           <div className="text-left">
@@ -158,7 +158,7 @@ const LoginPage = () => {
               Bienvenido de nuevo
             </h2>
             <p className="mt-2 text-sm text-slate-500 leading-relaxed">
-              Ingresa a tu cuenta de COTAL para gestionar tu talento local y servicios.
+              Ingresa a tu cuenta de TallerioCapital para gestionar tu talento local y servicios.
             </p>
           </div>
 

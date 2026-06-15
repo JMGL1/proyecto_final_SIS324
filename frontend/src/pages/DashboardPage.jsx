@@ -182,7 +182,7 @@ const DashboardPage = () => {
         user={user}
         subtitle={
           user.rol === 'ADMIN' ? 'Tienes control total del sistema. Gestiona usuarios, modera servicios y supervisa toda la actividad de la plataforma.'
-          : user.rol === 'HOST' ? 'Publica tus servicios, gestiona solicitudes y construye tu reputación en la plataforma COTAL.'
+          : user.rol === 'HOST' ? 'Publica tus servicios, gestiona solicitudes y construye tu reputación en la plataforma TallerioCapital.'
           : 'Explora servicios publicados por proveedores verificados, envía solicitudes y lleva el seguimiento de tu historial.'
         }
       />
@@ -292,7 +292,7 @@ const DashboardPage = () => {
                   label="Servicios Disponibles"
                   value={stats.stats.totalServicesAvailable}
                   color="slate"
-                  sub="Servicios aprobados en COTAL"
+                  sub="Servicios aprobados en TallerioCapital"
                   icon={<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>}
                 />
               </div>

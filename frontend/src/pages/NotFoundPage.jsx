@@ -58,12 +58,12 @@ const NotFoundPage = () => {
           </Link>
         </div>
 
-        {/* Logo COTAL */}
+        {/* Logo TallerioCapital */}
         <div className="mt-12 flex items-center justify-center gap-2 text-slate-400">
           <div className="w-6 h-6 rounded-lg bg-gradient-to-tr from-indigo-500 to-indigo-600 flex items-center justify-center text-white font-bold text-xs">
             C
           </div>
-          <span className="text-xs font-semibold tracking-tight">COTAL — Conecta de Talentos Locales</span>
+          <span className="text-xs font-semibold tracking-tight">TallerioCapital — Conecta de Talentos Locales</span>
         </div>
       </div>
     </div>

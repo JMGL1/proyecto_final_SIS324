@@ -103,7 +103,7 @@ const RegisterPage = () => {
           <div className="w-10 h-10 rounded-xl bg-white/10 backdrop-blur-md flex items-center justify-center font-display font-bold text-xl tracking-wider border border-white/20 shadow-inner-xs">
             C
           </div>
-          <span className="font-display font-semibold tracking-wide text-lg">COTAL</span>
+          <span className="font-display font-semibold tracking-wide text-lg">TallerioCapital</span>
         </div>
 
         {/* Centro del Hero: Mensaje y Composición Visual */}
@@ -114,7 +114,7 @@ const RegisterPage = () => {
               Únete hoy
             </span>
             <h1 className="text-4xl xl:text-5xl font-display font-bold leading-tight tracking-tight">
-              Crea tu cuenta y únete a la comunidad de COTAL.
+              Crea tu cuenta y únete a la comunidad de TallerioCapital.
             </h1>
             <p className="text-indigo-200 text-base leading-relaxed">
               Encuentra oportunidades de trabajo, conecta con profesionales de confianza de tu zona local y potencia tus proyectos.
@@ -159,7 +159,7 @@ const RegisterPage = () => {
 
         {/* Footer del Hero */}
         <div className="relative z-10 text-xs text-indigo-200/60 flex justify-between items-center">
-          <span>© 2026 COTAL. Todos los derechos reservados.</span>
+          <span>© 2026 TallerioCapital. Todos los derechos reservados.</span>
           <div className="flex gap-4">
             <a href="#" className="hover:text-white transition-colors">Términos</a>
             <a href="#" className="hover:text-white transition-colors">Privacidad</a>
@@ -178,7 +178,7 @@ const RegisterPage = () => {
             <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-indigo-600 to-indigo-700 flex items-center justify-center text-white font-display font-bold text-2xl shadow-premium mb-3">
               C
             </div>
-            <h1 className="text-2xl font-display font-bold text-slate-900">COTAL</h1>
+            <h1 className="text-2xl font-display font-bold text-slate-900">TallerioCapital</h1>
           </div>
 
           <div className="text-left">
@@ -186,7 +186,7 @@ const RegisterPage = () => {
               Crea tu cuenta
             </h2>
             <p className="mt-1.5 text-sm text-slate-500 leading-relaxed">
-              Únete a COTAL y conecta con el talento de tu zona local.
+              Únete a TallerioCapital y conecta con el talento de tu zona local.
             </p>
           </div>
 

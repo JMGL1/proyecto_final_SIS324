@@ -8,7 +8,7 @@ import statsService from '../services/statsService.js';
    Solo visual. Cero cambios en lógica, rutas o autenticación.
 ───────────────────────────────────────────────────────────────────────── */
 
-/* Ícono de logo COTAL */
+/* Ícono de logo TallerioCapital */
 const CotalLogo = () => (
   <div className="relative w-8 h-8 flex-shrink-0">
     <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-indigo-500 via-indigo-600 to-indigo-700 flex items-center justify-center shadow-glow-indigo">
@@ -203,7 +203,7 @@ const DashboardLayout = () => {
           {!collapsed && (
             <div className="min-w-0 animate-slideIn">
               <span className="font-display font-bold text-[15px] tracking-tight text-slate-900 block leading-none">
-                COTAL
+                TallerioCapital
               </span>
               <span className="text-2xs text-slate-400 font-medium leading-none mt-0.5 block">
                 Plataforma de servicios
@@ -372,7 +372,7 @@ const DashboardLayout = () => {
 
             {/* Breadcrumb */}
             <div className="flex items-center gap-2 text-sm">
-              <span className="text-slate-400 font-medium hidden sm:inline">COTAL</span>
+              <span className="text-slate-400 font-medium hidden sm:inline">TallerioCapital</span>
               <span className="text-slate-300 hidden sm:inline">/</span>
               <span className="font-semibold text-slate-800 capitalize">{pageTitle}</span>
             </div>

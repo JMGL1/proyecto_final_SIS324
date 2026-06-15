@@ -117,7 +117,7 @@ const UsersPage = () => {
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
           <h2 className="text-xl font-bold text-slate-900">Listado de Usuarios</h2>
-          <p className="text-xs text-slate-500 mt-1">Gestión administrativa de los talentos y anfitriones de COTAL.</p>
+          <p className="text-xs text-slate-500 mt-1">Gestión administrativa de los talentos y anfitriones de TallerioCapital.</p>
         </div>
         <Link
           to="/users/create"

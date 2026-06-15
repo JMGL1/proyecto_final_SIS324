@@ -96,7 +96,7 @@ const UserOverviewPage = () => {
         <div className="relative z-10 max-w-xl">
           <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/20 px-3 py-1 rounded-full mb-4">
             <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-            <span className="text-2xs font-bold uppercase tracking-widest text-white/90">Mi Actividad en COTAL</span>
+            <span className="text-2xs font-bold uppercase tracking-widest text-white/90">Mi Actividad en TallerioCapital</span>
           </div>
           <h2 className="text-2xl md:text-3xl font-display font-extrabold leading-tight">
             Resumen de tu cuenta

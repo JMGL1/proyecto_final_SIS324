@@ -82,7 +82,7 @@ const TESTIMONIALS = [
   {
     name: "Carlos R.",
     role: "HOST — Plomero",
-    text: "Desde que me uní a COTAL mis clientes aumentaron un 40%. El panel de gestión es excelente.",
+    text: "Desde que me uní a TallerioCapital mis clientes aumentaron un 40%. El panel de gestión es excelente.",
     avatar: "C",
     color: "#10B981",
   },
@@ -97,12 +97,12 @@ const TESTIMONIALS = [
 
 const FAQS = [
   {
-    q: "¿COTAL es gratuito?",
+    q: "¿TallerioCapital es gratuito?",
     a: "Para los usuarios que buscan servicios, sí, completamente gratuito. Los HOSTs (prestadores) se registran también sin costo inicial.",
   },
   {
     q: "¿Cómo me registro como HOST?",
-    a: 'Al crear tu cuenta en COTAL, elegís el rol "HOST". Desde tu panel podés crear y gestionar tus servicios y recibir solicitudes.',
+    a: 'Al crear tu cuenta en TallerioCapital, elegís el rol "HOST". Desde tu panel podés crear y gestionar tus servicios y recibir solicitudes.',
   },
   {
     q: "¿Cómo sé si mi solicitud fue aceptada?",
@@ -219,7 +219,7 @@ function LandingNavbar() {
               scrolled ? "text-slate-900" : "text-white"
             }`}
           >
-            COTAL
+            TallerioCapital
           </span>
         </div>
 
@@ -323,7 +323,7 @@ export default function LandingPage() {
           </h1>
 
           <p className="text-lg sm:text-xl text-white/75 max-w-2xl mx-auto mb-10 animate-fade-in-up-delay-2">
-            COTAL es la plataforma donde encontrás prestadores verificados, hacés
+            TallerioCapital es la plataforma donde encontrás prestadores verificados, hacés
             solicitudes en segundos y seguís el estado de tus pedidos en tiempo
             real.
           </p>
@@ -341,7 +341,7 @@ export default function LandingPage() {
               id="hero-cta-how"
               className="px-8 py-4 rounded-2xl bg-white/10 border border-white/20 text-white font-semibold text-base backdrop-blur-sm hover:bg-white/20 transition-all duration-200"
             >
-              Conoce COTAL
+              Conoce TallerioCapital
             </a>
           </div>
         </div>
@@ -440,7 +440,7 @@ export default function LandingPage() {
             }`}
           >
             <span className="text-emerald-600 font-bold text-sm uppercase tracking-widest">
-              ¿Por qué COTAL?
+              ¿Por qué TallerioCapital?
             </span>
             <h2 className="text-4xl font-black text-slate-900 mt-2">
               Todo lo que necesitás, en un solo lugar
@@ -565,7 +565,7 @@ export default function LandingPage() {
               ¿Listo para empezar?
             </h2>
             <p className="text-slate-500 text-lg mb-10">
-              Uníte a COTAL y encontrá el servicio que necesitás — o empezá a
+              Uníte a TallerioCapital y encontrá el servicio que necesitás — o empezá a
               ofrecer el tuyo.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -595,10 +595,10 @@ export default function LandingPage() {
             <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-indigo-400 to-indigo-600 flex items-center justify-center">
               <span className="text-white font-black text-xs">C</span>
             </div>
-            <span className="text-white font-bold">COTAL</span>
+            <span className="text-white font-bold">TallerioCapital</span>
           </div>
           <p className="text-sm text-center">
-            © {new Date().getFullYear()} COTAL — Plataforma de servicios locales.
+            © {new Date().getFullYear()} TallerioCapital — Plataforma de servicios locales.
             Todos los derechos reservados.
           </p>
           <div className="flex gap-5 text-sm">
